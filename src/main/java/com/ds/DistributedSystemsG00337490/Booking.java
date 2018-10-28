@@ -51,6 +51,12 @@ public class Booking
 		this.carRegistration = carRegistration;
 	}
 	
+	@Override
+	public String toString() {
+		return "Booking [firstName=" + firstName + ", lastName=" + lastName + ", orderCost=" + orderCost + ", orderID="
+				+ orderID + ", carName=" + carName + ", carRegistration=" + carRegistration + "]";
+	}
+	
 	
 	
 

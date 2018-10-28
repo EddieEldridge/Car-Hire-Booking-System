@@ -1,6 +1,7 @@
 package com.ds.DistributedSystemsG00337490;
 
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -8,15 +9,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 
-@Path("bookings")
+@Path("BookingSystem")
 public class BookingResource 
 {
 	// Variables
 	BookingRepository repo = new BookingRepository();
 	
-	
+	// Shows all current bookings
 	@GET
+	@Path("showAllBookings")
 	@Produces(MediaType.APPLICATION_XML)
 	public List<Booking> getBookings() 
 	{
@@ -24,15 +27,25 @@ public class BookingResource
 		return repo.getBookings();
 	}
 	
-	/*
+	// Creates a booking
+	@POST
+	@Path("createBooking")
+	public Booking createBooking(Booking booking1)
+	{
+		System.out.println(booking1);
+		repo.createBooking(booking1);
+		return booking1;
+	}
+	
+	// Shows bookings with a specified ID
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	public Booking getBooking() 
+	@Path("booking/{orderID}")
+	public Booking getBooking(@PathParam("orderID") int orderID) 
 	{
-		System.out.println("Inside getBooking!");
-		return repo.getBooking(20);
+		return repo.getBooking(orderID);
 	}
-	*/
+	
 	
 }
 
