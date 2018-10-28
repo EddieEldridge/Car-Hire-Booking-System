@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 public class BookingRepository 
 {	
 	// Variables
@@ -30,6 +34,15 @@ public class BookingRepository
 		{
 			System.out.println(e);
 		}
+		
+		// Setup Hibernate
+		Configuration config = new Configuration();
+		
+		// Create an instance of sessionFactory so we can create a session
+		SessionFactory sessionFactory = config.buildSessionFactory();
+		
+		// Create a session from our sessionFactory interface
+		Session session = sessionFactory.openSession();
 	}
 
 	// Shows all current bookings
