@@ -1,8 +1,9 @@
 package com.ds.DistributedSystemsG00337490;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.*;
 
 public class BookingRepository 
 {	
@@ -14,14 +15,28 @@ public class BookingRepository
 	
 	public BookingRepository() 
 	{
-
+		// Variables
+		String url = "jdbc:mysql://localhost:3306";
+		String username="root";
+		String password = "osgard100";
 		
-
+		// Create a connection;
+		try
+		{
+			Class.forName("com.sql.jdbc.Driver");
+			connection = DriverManager.getConnection(url, username, password);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 	// Shows all current bookings
 	public List<Booking> getBookings() 
 	{
+		List<Booking> bookings = new ArrayList();
+		String sql = "select * from bookings";
 		return bookings;
 	}
 
