@@ -32,7 +32,6 @@ public class BookingResource
 	@Path("createBooking")
 	public Booking createBooking(Booking booking1)
 	{
-		System.out.println(booking1);
 		repo.createBooking(booking1);
 		return booking1;
 	}
