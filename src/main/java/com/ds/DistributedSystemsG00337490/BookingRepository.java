@@ -54,6 +54,7 @@ public class BookingRepository
 	}
 
 	// Shows bookings with a specified ID
+	/*
 	public Booking getBooking(int orderID) 
 	{
 		
@@ -78,4 +79,5 @@ public class BookingRepository
 	{
 		bookings.add(booking3);
 	}
+	*/
 }
