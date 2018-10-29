@@ -10,21 +10,23 @@ public class BookingService
 	public static void main(String[] args) throws Exception
 	{
 		// Create instance of bookingService implementation
-		BookingServiceImpl bookingService = new BookingServiceImpl();
+		BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
 		
 		// Start the RMI Registry 
 		LocateRegistry.createRegistry(1099);
+		
+		// Bind the bookingService object to the registry 
+		try
+		{
+			Naming.rebind("bookingService", bookingServiceImpl);
+			System.out.println("Server started...");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Server error: " + e);
+		}
 	}
 	
-	// Bind the bookingService object to the registry 
-	try
-	{
-		Naming.rebind("bookingService", bookingService);
-		System.out.println("Server started...");
-	}
-	catch(Exception e)
-	{
-		System.out.println("Server error: " + e);
-	}
+	
 	
 }
