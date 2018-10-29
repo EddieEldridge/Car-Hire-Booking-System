@@ -13,7 +13,7 @@ import org.hibernate.cfg.Configuration;
 
 public class BookingServiceImpl extends UnicastRemoteObject implements BookingServiceInterface
 {
-	
+	private static final long serialVersionUID = 1L;
 
 	public BookingServiceImpl() throws RemoteException
 	{
