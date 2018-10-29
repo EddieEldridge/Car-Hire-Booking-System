@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,11 @@ import org.hibernate.cfg.Configuration;
 
 public class BookingServiceImpl extends UnicastRemoteObject implements BookingServiceInterface
 {
+	// Variables
+	String url = "jdbc:mysql://localhost:3306";
+	String username = "root";
+	String password = "osgard100";
+
 	private static final long serialVersionUID = 1L;
 
 	public BookingServiceImpl() throws RemoteException
@@ -24,7 +30,26 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	public List<Booking> getBookings()
 	{
 		List<Booking> bookings = new ArrayList();
+
+		// Create a connection;
+		try
+		{
+			// Define we want to use sql jdbc driver
+			Class.forName("com.sql.jdbc.Driver");
+
+			// Setup connection to database
+			Connection connection = DriverManager.getConnection(url, username, password);
+
+			Statement statement = connection.createStatement();
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Error creating the connection to SQL Server:" + e);
+		}
+
+		// Create the sql statement we went to execute on our
 		String sql = "select * from bookings";
+
 		return bookings;
 	}
 
@@ -32,6 +57,21 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	@Override
 	public Booking getBooking(int orderID) throws RemoteException
 	{
+		// Create a connection;
+		try
+		{
+			// Define we want to use sql jdbc driver
+			Class.forName("com.sql.jdbc.Driver");
+
+			// Setup connection to database
+			Connection connection = DriverManager.getConnection(url, username, password);
+
+			Statement statement = connection.createStatement();
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Error creating the connection to SQL Server:" + e);
+		}
 
 		for (Booking booking : bookings)
 		{
@@ -39,7 +79,8 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 			{
 				System.out.println("Booking found!");
 				return booking;
-			} else
+			} 
+			else
 			{
 				return null;
 			}
@@ -51,6 +92,21 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	@Override
 	public void createBooking(Booking booking) throws RemoteException
 	{
+		// Create a connection;
+		try
+		{
+			// Define we want to use sql jdbc driver
+			Class.forName("com.sql.jdbc.Driver");
+
+			// Setup connection to database
+			Connection connection = DriverManager.getConnection(url, username, password);
+
+			Statement statement = connection.createStatement();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error creating the connection to SQL Server:" + e);
+		}
 		// bookings.add(booking3);
 	}
 

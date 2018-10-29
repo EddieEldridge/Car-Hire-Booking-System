@@ -13,10 +13,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
 @Path("BookingSystem")
-public class BookingResource 
+public class BookingResource
 {
 	// Variables
-	//BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
+	BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
 	
 	// Shows all current bookings
 	@GET
