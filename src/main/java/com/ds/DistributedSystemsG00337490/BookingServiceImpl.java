@@ -13,44 +13,11 @@ import org.hibernate.cfg.Configuration;
 
 public class BookingServiceImpl extends UnicastRemoteObject implements BookingServiceInterface
 {
-	// Variables
-	String url = "jdbc:mysql://localhost:3306";
-	String username = "root";
-	String password = "osgard100";
-
-	// Create a connection;
-	try
-	{
-		Class.forName("com.sql.jdbc.Driver");
-		connection = DriverManager.getConnection(url, username, password);
-	}
-	catch(
-	Exception e)
-	{
-		System.out.println("Error creating the connection to SQL Server:" + e);
-	}
-
-	// Setup Hibernate
-	Configuration config = new Configuration();
-
-	// Create an instance of sessionFactory so we can create a session
-	SessionFactory sessionFactory = config.buildSessionFactory();
-
-	// Create a session from our sessionFactory interface
-	Session session = sessionFactory.openSession();
-
-	// Setup connection to database
-	Connection connection = null;
-
-	public FileServiceImpl() throws RemoteException
-	{
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public BookingServiceImpl() throws RemoteException
 	{
-
+		super();
 	}
 
 	// Shows all current bookings

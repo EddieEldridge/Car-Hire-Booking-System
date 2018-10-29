@@ -10,7 +10,7 @@ public class BookingService
 	public static void main(String[] args) throws Exception
 	{
 		// Create instance of bookingService implementation
-		sss bookingServiceImpl = new sss();
+		BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
 		
 		// Start the RMI Registry 
 		LocateRegistry.createRegistry(1099);

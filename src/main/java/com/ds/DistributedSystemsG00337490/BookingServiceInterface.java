@@ -13,6 +13,4 @@ public interface BookingServiceInterface extends Remote
 	
 	public void createBooking(Booking booking) throws RemoteException;
 
-
-
 }
