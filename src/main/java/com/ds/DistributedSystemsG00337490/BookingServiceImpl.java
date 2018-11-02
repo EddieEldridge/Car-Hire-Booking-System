@@ -10,39 +10,62 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 public class BookingServiceImpl extends UnicastRemoteObject implements BookingServiceInterface
 {
 	// Variables
-	String url = "jdbc:mysql://localhost:3306";
+	String url = "jdbc:mysql://localhost:3306/bookings";
 	String username = "root";
 	String password = "osgard100";
+	Statement statement = null;
+	Connection connection = null;
+	
 
 	private static final long serialVersionUID = 1L;
 
 	public BookingServiceImpl() throws RemoteException, SQLException
 	{
-		super();
+		// Setup connection to database
+		
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(url, username, password);
+		} 
+		catch (Exception e)
+		{
+			System.out.println("Connection error: "+e);
+		}
+		
+
+
 	}
 
 	
-	// Setup connection to database
-	Connection connection = DriverManager.getConnection(url, username, password);
 
-	Statement statement = connection.createStatement();
+
 
 	// Shows all current bookings
 	public List<Booking> getBookings()
 	{
 
-		List<Booking> bookings = new ArrayList();
+		
+		List<Booking> bookings = new ArrayList<>();
 		        
 		// Create the sql statement we went to execute on our
-		String sql = "show databases";
+		System.out.println(url);
+		String sql = "show tables;";
 		
+		try
+		{
+			Statement statement = connection.createStatement();
+		} 
+		catch (Exception e1)
+		{
+			System.out.println("Statement error: "+e1);
+
+		}
+
 		// Execute the statement
         try
 		{
@@ -56,11 +79,8 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		} 
         catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("SQL Error: " +e);
 		}
-
-
 		return bookings;
 	}
 
