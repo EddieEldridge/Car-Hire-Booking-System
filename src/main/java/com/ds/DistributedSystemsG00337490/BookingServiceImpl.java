@@ -54,27 +54,23 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		        
 		// Create the sql statement we went to execute on our
 		System.out.println(url);
-		String sql = "show tables;";
+		String sql = "select * from bookings;";
 		
-		try
-		{
-			Statement statement = connection.createStatement();
-		} 
-		catch (Exception e1)
-		{
-			System.out.println("Statement error: "+e1);
-
-		}
-
 		// Execute the statement
         try
 		{
+			Statement statement = connection.createStatement();
+			System.out.println(statement);
         	System.out.println("Executing statement!");
 			ResultSet rs = statement.executeQuery(sql);
 			
 			while(rs.next())
 			{
-				System.out.println(rs);
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				String firstName = rs.getString(3);
+				
+				System.out.println("ID: " + id + "name: " + name + "firstName: " + firstName);
 			}
 		} 
         catch (SQLException e)
@@ -103,7 +99,27 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	@Override
 	public void createBooking(Booking booking) throws RemoteException
 	{
-		// bookings.add(booking3);
+		// Create the sql statement we went to execute on our
+		System.out.println(url);
+		String sql = "insert into bookings(id, name, FirstName) VALUES ('2', 'Jesus', 'Christ');";
+				
+		// Execute the statement
+        try
+		{
+			Statement statement = connection.createStatement();
+			System.out.println(statement);
+        	System.out.println("Executing statement!");
+			ResultSet rs = statement.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				System.out.println(rs);
+			}
+		} 
+        catch (SQLException e)
+		{
+			System.out.println("SQL Error: " +e);
+		}
 	}
 
 }
