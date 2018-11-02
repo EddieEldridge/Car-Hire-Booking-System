@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,34 +23,43 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 
 	private static final long serialVersionUID = 1L;
 
-	public BookingServiceImpl() throws RemoteException
+	public BookingServiceImpl() throws RemoteException, SQLException
 	{
 		super();
 	}
 
+	
+	// Setup connection to database
+	Connection connection = DriverManager.getConnection(url, username, password);
+
+	Statement statement = connection.createStatement();
+
 	// Shows all current bookings
 	public List<Booking> getBookings()
 	{
+
 		List<Booking> bookings = new ArrayList();
-
-		// Create a connection;
-		try
+		        
+		// Create the sql statement we went to execute on our
+		String sql = "show databases";
+		
+		// Execute the statement
+        try
 		{
-			// Define we want to use sql jdbc driver
-			Class.forName("com.sql.jdbc.Driver");
-
-			// Setup connection to database
-			Connection connection = DriverManager.getConnection(url, username, password);
-
-			Statement statement = connection.createStatement();
+        	System.out.println("Executing statement!");
+			ResultSet rs = statement.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				System.out.println(rs);
+			}
 		} 
-		catch (Exception e)
+        catch (SQLException e)
 		{
-			System.out.println("Error creating the connection to SQL Server:" + e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
-		// Create the sql statement we went to execute on our
-		String sql = "select * from bookings";
 
 		return bookings;
 	}
@@ -57,34 +68,14 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	@Override
 	public Booking getBooking(int orderID) throws RemoteException
 	{
-		// Create a connection;
-		try
-		{
-			// Define we want to use sql jdbc driver
-			Class.forName("com.sql.jdbc.Driver");
 
-			// Setup connection to database
-			Connection connection = DriverManager.getConnection(url, username, password);
+		/*
+		 * for (Booking booking : bookings) { if (booking.getOrderID() == orderID) {
+		 * System.out.println("Booking found!"); return booking; } else { return null; }
+		 * }
+		 */
 
-			Statement statement = connection.createStatement();
-		} 
-		catch (Exception e)
-		{
-			System.out.println("Error creating the connection to SQL Server:" + e);
-		}
-
-		for (Booking booking : bookings)
-		{
-			if (booking.getOrderID() == orderID)
-			{
-				System.out.println("Booking found!");
-				return booking;
-			} 
-			else
-			{
-				return null;
-			}
-		}
+		return null;
 
 	}
 
@@ -92,21 +83,6 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	@Override
 	public void createBooking(Booking booking) throws RemoteException
 	{
-		// Create a connection;
-		try
-		{
-			// Define we want to use sql jdbc driver
-			Class.forName("com.sql.jdbc.Driver");
-
-			// Setup connection to database
-			Connection connection = DriverManager.getConnection(url, username, password);
-
-			Statement statement = connection.createStatement();
-		}
-		catch (Exception e)
-		{
-			System.out.println("Error creating the connection to SQL Server:" + e);
-		}
 		// bookings.add(booking3);
 	}
 

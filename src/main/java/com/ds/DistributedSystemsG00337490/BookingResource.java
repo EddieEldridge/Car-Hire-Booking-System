@@ -6,6 +6,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,8 +17,13 @@ import javax.ws.rs.POST;
 public class BookingResource
 {
 	// Variables
-	BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
-	
+	private BookingServiceImpl bookingServiceImpl;
+
+	public BookingResource() throws SQLException, RemoteException
+	{
+		bookingServiceImpl = new BookingServiceImpl();
+	}
+		
 	// Shows all current bookings
 	@GET
 	@Path("showAllBookings")
