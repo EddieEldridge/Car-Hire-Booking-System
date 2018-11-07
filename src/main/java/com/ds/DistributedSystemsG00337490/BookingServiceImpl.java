@@ -41,9 +41,6 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 
 	}
 
-	
-
-
 
 	// Shows all current bookings
 	public List<Booking> getBookings()
@@ -90,6 +87,8 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		 * System.out.println("Booking found!"); return booking; } else { return null; }
 		 * }
 		 */
+		System.out.println("STUB INVOCATION!");
+
 
 		return null;
 
@@ -103,6 +102,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		System.out.println(url);
 		String sql = "insert into bookings(id, name, FirstName) VALUES ('2', 'Jesus', 'Christ');";
 				
+		System.out.println("STUB INVOCATION!");
 		// Execute the statement
         try
 		{
