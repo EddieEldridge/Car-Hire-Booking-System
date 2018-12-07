@@ -26,7 +26,6 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	public BookingServiceImpl() throws RemoteException, SQLException
 	{
 		// Setup connection to database
-		
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -34,7 +33,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		} 
 		catch (Exception e)
 		{
-			System.out.println("Connection error: "+e);
+			System.out.println("Connection error to database: "+e);
 		}
 		
 
@@ -45,8 +44,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	// Shows all current bookings
 	public List<Booking> getBookings()
 	{
-
-		
+		// http://localhost:8080/DistributedSystemsG00337490/webapi/BookingSystem/showAllBookings
 		List<Booking> bookings = new ArrayList<>();
 		        
 		// Create the sql statement we went to execute on our

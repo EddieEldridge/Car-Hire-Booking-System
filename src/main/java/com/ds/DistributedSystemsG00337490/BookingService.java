@@ -14,7 +14,7 @@ public class BookingService
 		BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
 		
 		// Export the implementation
-		System.setProperty("java.rmi.server.hostname","192.168.137.1");
+		System.setProperty("java.rmi.server.hostname","172.16.80.187");
 
 
 		BookingServiceInterface stub = (BookingServiceInterface) UnicastRemoteObject.exportObject(bookingServiceImpl, 0);
