@@ -16,7 +16,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	// Variables
 	String url = "jdbc:mysql://localhost:3306/bookings";
 	String username = "root";
-	String password = "";
+	String password = "osgard100";
 	Statement statement = null;
 	Connection connection = null;
 	

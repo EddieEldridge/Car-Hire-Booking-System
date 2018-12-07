@@ -20,8 +20,7 @@ public class BookingClient
 				
 				// Create stub
 				BookingServiceInterface bookingServiceStub = new BookingServiceImpl();
-				
-				
+						
 				// 
 				Naming.rebind("databaseService", bookingServiceStub); 
 				
