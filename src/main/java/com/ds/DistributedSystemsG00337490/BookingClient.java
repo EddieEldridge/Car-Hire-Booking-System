@@ -1,6 +1,7 @@
 package com.ds.DistributedSystemsG00337490;
 
 import java.rmi.ConnectException;
+import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -11,34 +12,33 @@ public class BookingClient
 
 	public static void main(String[] args) throws NotBoundException, RemoteException
 	{
-		try 
-		{
-			// Getting the registry	
-			Registry registry = LocateRegistry.getRegistry(null);
-			
-			// Create stub
-			BookingServiceInterface stub;
+		
+	
 			
 			try 
 			{
-				// Looking up registry for remote object
-				stub = (BookingServiceInterface) registry.lookup("databaseService");
+				
+				// Create stub
+				BookingServiceInterface bookingServiceStub = new BookingServiceImpl();
+				
+				
+				// 
+				Naming.rebind("databaseService", bookingServiceStub); 
 				
 				// Remote methods
-				stub.getBooking(1);		
+				bookingServiceStub.getBooking(1);
+				bookingServiceStub.getBookings(1);
+				bookingServiceStub.getBooking(1);
+
 			} 
 			catch (Exception e)
 			{
-				System.out.println("Could not find registry.");
+				System.out.println("Could not find registry: " + e);
 			}
 			
 					
-		}
 		
-		catch (ConnectException e) 
-		{
-			System.out.println("Client Connection Exception: " + e);
-		}
 	}
 	
+
 }

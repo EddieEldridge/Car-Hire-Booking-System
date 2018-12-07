@@ -14,19 +14,46 @@ public class BookingService
 		BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
 		
 		// Export the implementation
-		System.setProperty("java.rmi.server.hostname","172.16.80.187");
+		System.setProperty("java.rmi.server.hostname","127.0.0.1:1099");
 
-
-		BookingServiceInterface stub = (BookingServiceInterface) UnicastRemoteObject.exportObject(bookingServiceImpl, 0);
-		
 		// Start the RMI Registry 
-		LocateRegistry.createRegistry(1099);
+		try 
+		{
+			LocateRegistry.createRegistry(1099);
+			System.out.println("Creating registry...");
+		} 
+		catch (Exception e2)
+		{
+			System.out.println("Error creating registry: " + e2);
+		}
+		
+		
+		try
+		{
+			Naming.rebind("databaseService", bookingServiceImpl);
+		}
+		catch (Exception e2)
+		{
+			System.out.println("Error binding databaseService: " + e2);
+		}
+		
+		//BookingServiceInterface stub;
+		
+		try 
+		{
+			//stub = (BookingServiceInterface) UnicastRemoteObject.exportObject(bookingServiceImpl, 0);
+			Naming.rebind("databaseService", bookingServiceImpl);
+			System.out.println("Server started...");
+		}
+		catch (Exception e1) 
+		{
+			System.out.println("Error exporting remote object: " + e1);
+		}
 		
 		// Bind the bookingService object to the registry 
 		try
 		{
-			Naming.rebind("databaseService", stub);
-			System.out.println("Server started...");
+			
 		}
 		catch(Exception e)
 		{
