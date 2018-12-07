@@ -46,6 +46,8 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	{
 		// http://localhost:8080/DistributedSystemsG00337490/webapi/BookingSystem/showAllBookings
 		List<Booking> bookings = new ArrayList<>();
+		
+		System.out.println("Getting all bookings...");
 		        
 		// Create the sql statement we went to execute on our
 		System.out.println(url);
@@ -85,7 +87,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		 * System.out.println("Booking found!"); return booking; } else { return null; }
 		 * }
 		 */
-		System.out.println("STUB INVOCATION!");
+		System.out.println("Getting booking...!");
 
 
 		return null;
@@ -100,7 +102,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		System.out.println(url);
 		String sql = "insert into bookings(id, name, FirstName) VALUES ('2', 'Jesus', 'Christ');";
 				
-		System.out.println("STUB INVOCATION!");
+		System.out.println("Creating booking...!");
 		// Execute the statement
         try
 		{

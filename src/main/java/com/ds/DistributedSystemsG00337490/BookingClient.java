@@ -27,8 +27,7 @@ public class BookingClient
 				
 				// Remote methods
 				bookingServiceStub.getBooking(1);
-				bookingServiceStub.getBookings(1);
-				bookingServiceStub.getBooking(1);
+				bookingServiceStub.getBookings();
 
 			} 
 			catch (Exception e)
