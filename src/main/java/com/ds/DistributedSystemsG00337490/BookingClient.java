@@ -26,7 +26,7 @@ public class BookingClient
 				Naming.rebind("databaseService", bookingServiceStub); 
 				
 				// Remote methods
-				bookingServiceStub.getBooking(1);
+				//bookingServiceStub.getBooking(1);
 				bookingServiceStub.getBookings();
 
 			} 

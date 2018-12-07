@@ -27,7 +27,6 @@ public class BookingService
 			System.out.println("Error creating registry: " + e2);
 		}
 		
-		
 		try
 		{
 			Naming.rebind("databaseService", bookingServiceImpl);

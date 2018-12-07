@@ -63,11 +63,11 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 			
 			while(rs.next())
 			{
-				int id = rs.getInt(1);
-				String name = rs.getString(2);
-				String firstName = rs.getString(3);
-				
-				System.out.println("ID: " + id + "name: " + name + "firstName: " + firstName);
+				String firstName = rs.getString(1);
+				String secondName = rs.getString(2);
+				int id = rs.getInt(3);
+
+				System.out.println("\nFirst Name: " + firstName + "\nSecond Name: " + secondName + "\nID: " + id);
 			}
 		} 
         catch (SQLException e)
@@ -99,6 +99,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 	public void createBooking(Booking booking) throws RemoteException
 	{
 		// Create the sql statement we went to execute on our
+		// INSERT INTO bookings(firstName, secondName, ID) VALUES ("Eddie", "Eldridge", 5);
 		System.out.println(url);
 		String sql = "insert into bookings(id, name, FirstName) VALUES ('2', 'Jesus', 'Christ');";
 				
