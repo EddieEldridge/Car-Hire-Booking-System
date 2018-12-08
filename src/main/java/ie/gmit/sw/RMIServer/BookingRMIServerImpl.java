@@ -1,4 +1,4 @@
-package com.ds.DistributedSystemsG00337490;
+package ie.gmit.sw.RMIServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class BookingServiceImpl extends UnicastRemoteObject implements BookingServiceInterface
+public class BookingRMIServerImpl extends UnicastRemoteObject implements BookingRMIServerInterface
 {
 	// Variables
 	String url = "jdbc:mysql://localhost:3306/bookings";
@@ -23,7 +23,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 
 	private static final long serialVersionUID = 1L;
 
-	public BookingServiceImpl() throws RemoteException, SQLException
+	public BookingRMIServerImpl() throws RemoteException, SQLException
 	{
 		// Setup connection to database
 		try
@@ -35,9 +35,6 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		{
 			System.out.println("Connection error to database: "+e);
 		}
-		
-
-
 	}
 
 
@@ -101,7 +98,7 @@ public class BookingServiceImpl extends UnicastRemoteObject implements BookingSe
 		// Create the sql statement we went to execute on our
 		// INSERT INTO bookings(firstName, secondName, ID) VALUES ("Eddie", "Eldridge", 5);
 		System.out.println(url);
-		String sql = "insert into bookings(id, name, FirstName) VALUES ('2', 'Jesus', 'Christ');";
+		String sql = "insert into bookings(firstName, lastName, ID) VALUES ('Jesus', 'Christ', '100');";
 				
 		System.out.println("Creating booking...!");
 		// Execute the statement

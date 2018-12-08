@@ -1,9 +1,12 @@
-package com.ds.DistributedSystemsG00337490;
+package ie.gmit.sw.RESTServer;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import ie.gmit.sw.RMIServer.Booking;
+import ie.gmit.sw.RMIServer.BookingRMIServerImpl;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
@@ -17,11 +20,11 @@ import javax.ws.rs.POST;
 public class BookingResource
 {
 	// Variables
-	private BookingServiceImpl bookingServiceImpl;
+	private BookingRMIServerImpl bookingServiceImpl;
 
 	public BookingResource() throws SQLException, RemoteException
 	{
-		bookingServiceImpl = new BookingServiceImpl();
+		bookingServiceImpl = new BookingRMIServerImpl();
 	}
 		
 	// Shows all current bookings
@@ -30,7 +33,6 @@ public class BookingResource
 	@Produces(MediaType.APPLICATION_XML)
 	public List<Booking> getBookings() 
 	{
-		System.out.println("Inside getBookings!");
 		return bookingServiceImpl.getBookings();
 	}
 	

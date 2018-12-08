@@ -1,4 +1,4 @@
-package com.ds.DistributedSystemsG00337490;
+package ie.gmit.sw.RMIServer;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
