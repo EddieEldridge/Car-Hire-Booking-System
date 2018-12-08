@@ -16,6 +16,27 @@ public class Booking implements Serializable
 	private int orderID;
 	private String carName;
 	private String carRegistration;
+	private String startOfBooking;
+	private String endOfBooking;
+	
+	public Booking()
+	{
+		
+	}
+	
+	public Booking(String firstName, String lastName, double orderCost, int orderID, String carName,
+			String carRegistration, String startOfBooking, String endOfBooking)
+	{
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.orderCost = orderCost;
+		this.orderID = orderID;
+		this.carName = carName;
+		this.carRegistration = carRegistration;
+		this.startOfBooking = startOfBooking;
+		this.endOfBooking = endOfBooking;
+	}
 	
 	// Getters and Setters
 	public String getFirstName() {
@@ -55,11 +76,24 @@ public class Booking implements Serializable
 		this.carRegistration = carRegistration;
 	}
 	
-	@Override
-	public String toString() {
-		return "Booking [firstName=" + firstName + ", lastName=" + lastName + ", orderCost=" + orderCost + ", orderID="
-				+ orderID + ", carName=" + carName + ", carRegistration=" + carRegistration + "]";
+	public String getEndOfBooking()
+	{
+		return endOfBooking;
 	}
+	public void setEndOfBooking(String endOfBooking)
+	{
+		this.endOfBooking = endOfBooking;
+	}
+	public String getStartOfBooking()
+	{
+		return startOfBooking;
+	}
+	public void setStartOfBooking(String startOfBooking)
+	{
+		this.startOfBooking = startOfBooking;
+	}
+
+
 	
 	
 	
