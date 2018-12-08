@@ -19,6 +19,7 @@ import javax.ws.rs.POST;
 @Path("BookingSystem")
 public class BookingResource
 {
+	// Test
 	// Variables
 	private BookingRMIServerImpl bookingServiceImpl;
 
