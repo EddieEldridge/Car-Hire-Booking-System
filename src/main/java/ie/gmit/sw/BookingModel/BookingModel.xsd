@@ -1,8 +1,6 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gmit="http://sw.gmit.ie/BookingModel/" targetNamespace="http://sw.gmit.ie/BookingModel/" elementFormDefault="qualified">
 <xsd:element name='comment' type='xsd:string'/>
 
-<xsd:element name='booking' type='gmit:Booking'/>
-
 <xsd:simpleType name="bookingID">
 	<xsd:restriction base="xsd:string">
 		<xsd:pattern value="[0-9]{5}(-[A-Z]{4})?" />
