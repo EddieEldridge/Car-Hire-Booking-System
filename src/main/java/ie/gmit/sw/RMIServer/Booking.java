@@ -1,10 +1,14 @@
 package ie.gmit.sw.RMIServer;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Booking 
+public class Booking implements Serializable
 {
+	private static final long serialVersionUID = 7877428345616246401L;
+	
 	// Variables
 	private String firstName;
 	private String lastName;
