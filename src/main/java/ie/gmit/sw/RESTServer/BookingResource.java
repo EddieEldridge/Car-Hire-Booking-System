@@ -10,6 +10,7 @@ import ie.gmit.sw.BookingModel.Customer;
 import ie.gmit.sw.BookingModel.Vehicle;
 import ie.gmit.sw.RMIServer.BookingObject;
 import ie.gmit.sw.RMIServer.BookingRMIServerImpl;
+import ie.gmit.sw.XMLMarshaller.BookingObjectMarshaller;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
 @Path("BookingSystem")
-public class BookingResource
+public class BookingResource extends BookingObjectMarshaller
 {
 	// Variables
 	private BookingRMIServerImpl bookingServiceImpl;
@@ -30,13 +31,14 @@ public class BookingResource
 	{
 		bookingServiceImpl = new BookingRMIServerImpl();
 	}
-		
+			
 	// Shows all current bookings
 	@GET
 	@Path("showAllBookings")
 	@Produces(MediaType.APPLICATION_XML)
 	public List<BookingObject> getBookings() 
 	{
+		System.out.println("inside showallbookings");
 		// Create a list of BookingObjects to store them in when retrieved from the database
 		List<BookingObject> bookingObjects = new ArrayList<BookingObject>();
 		
@@ -45,7 +47,6 @@ public class BookingResource
 		Customer customer = new Customer();
 		Vehicle vehicle = new Vehicle();
 		
-		List<>
 		
 		return bookingServiceImpl.getBookings();
 	}

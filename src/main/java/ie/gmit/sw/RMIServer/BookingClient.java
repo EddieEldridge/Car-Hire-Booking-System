@@ -22,10 +22,7 @@ public class BookingClient
 			// Bind the bookingServiceStub to the databaseServuce
 			Naming.rebind("databaseService", bookingServiceStub);
 
-			// Remote methods
-			// bookingServiceStub.getBooking(1);
-			bookingServiceStub.createBooking(null);
-
+			System.out.println("Created and bound stub...");
 		}
 		catch (Exception e)
 		{
