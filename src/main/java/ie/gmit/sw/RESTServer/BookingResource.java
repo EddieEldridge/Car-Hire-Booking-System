@@ -78,7 +78,8 @@ public class BookingResource extends BookingObjectMarshaller
 			for(i=0; i<bookings.size(); i++)
 			{
 				objectAsXML = marshalBooking(bookings.get(i));
-				objectsAsXML.concat(objectAsXML);
+				System.out.println(objectAsXML);
+				objectsAsXML = objectAsXML.concat(objectAsXML);
 			}
 			
 			System.out.println("Succesfully marshalled to XML.");
@@ -89,6 +90,7 @@ public class BookingResource extends BookingObjectMarshaller
 			System.out.println("Error trying to call marshalBooking..." + e);
 		}
 		
+		System.out.println(objectsAsXML);
 
 		// Return the objects as XML
 		return objectsAsXML;
