@@ -11,6 +11,7 @@ package ie.gmit.sw.BookingModel;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -51,6 +52,7 @@ import javax.xml.bind.annotation.XmlType;
     "carColour",
     "carEngineSize"
 })
+@XmlRootElement
 public class Vehicle {
 
     protected int carID;

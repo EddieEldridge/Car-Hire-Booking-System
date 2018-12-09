@@ -21,7 +21,7 @@ public class BookingObjectMarshaller
 	}
 	
 	// Function to marshal the Java object(Booking) as XML
-	public String marshalBooking(BookingObject bookingObjects)
+	public String marshalBooking(Booking booking)
 	{
 		StringWriter stringWriter = new StringWriter();
 		Marshaller xmlMarshaller;
@@ -36,7 +36,7 @@ public class BookingObjectMarshaller
 			
 			// Marshall the booking object as XML
 			xmlMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-			xmlMarshaller.marshal(bookingObjects, stringWriter);
+			xmlMarshaller.marshal(booking, stringWriter);
 		} 
 		catch (JAXBException e)
 		{
