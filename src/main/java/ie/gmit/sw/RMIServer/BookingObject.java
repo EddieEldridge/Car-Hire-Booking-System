@@ -43,6 +43,12 @@ public class BookingObject implements Serializable
 		this.bookingEndDate = bookingEndDate;
 		this.carRegistration = carRegistration;
 	}
+	
+	public BookingObject()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the bookingID
 	 */

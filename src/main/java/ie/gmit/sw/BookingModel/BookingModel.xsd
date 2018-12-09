@@ -1,11 +1,14 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gmit="http://sw.gmit.ie/BookingModel/" targetNamespace="http://sw.gmit.ie/BookingModel/" elementFormDefault="qualified">
-<xsd:element name='comment' type='xsd:string'/>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:gmit="http://sw.gmit.ie/BookingModel/"
+	targetNamespace="http://sw.gmit.ie/BookingModel/"
+	elementFormDefault="qualified">
+	<xsd:element name='comment' type='xsd:string' />
 
-<xsd:simpleType name="bookingID">
-	<xsd:restriction base="xsd:string">
-		<xsd:pattern value="[0-9]{5}(-[A-Z]{4})?" />
-	</xsd:restriction>
-</xsd:simpleType>
+	<xsd:simpleType name="bookingID">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{5}(-[A-Z]{4})?" />
+		</xsd:restriction>
+	</xsd:simpleType>
 
 	<xsd:complexType name='Customer'>
 		<xsd:annotation>
@@ -14,7 +17,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name='bookingID' type='xsd:int' />
+			<xsd:element name='customerID' type='xsd:int' />
 			<xsd:element name='firstName' type='xsd:string' />
 			<xsd:element name='lastName' type='xsd:string' />
 			<xsd:element name='insuranceID' type='xsd:int' />
@@ -22,7 +25,7 @@
 		</xsd:sequence>
 	</xsd:complexType>
 
-		<xsd:complexType name='Booking'>
+	<xsd:complexType name='Booking'>
 		<xsd:annotation>
 			<xsd:documentation>
 				Booking Schema
@@ -55,6 +58,6 @@
 	</xsd:complexType>
 
 
-		
+
 
 </xsd:schema>

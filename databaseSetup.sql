@@ -1,6 +1,6 @@
-CREATE DATABASE testSystem6;
+CREATE DATABASE testSystem7;
 
-USE testSystem6;
+USE testSystem7;
 
 CREATE TABLE Customer
 (
@@ -29,7 +29,6 @@ CREATE TABLE Booking
     bookingID INT NOT NULL PRIMARY KEY,
     customerID INT(50) NOT NULL,
     carID INT(50) NOT NULL,
-    bookingStartDate VARCHAR(50) NOT NULL,
     bookingStartDate VARCHAR(50) NOT NULL,
     bookingEndDate VARCHAR(50) NOT NULL,
     carRegistration INT(50) NOT NULL
@@ -71,7 +70,6 @@ VALUES
 ( -- second row: values for the columns in the list above
  54321, 103455, 'Honda', 'Civic', 'Black', 5
 );
-
-
-
 GO
+
+

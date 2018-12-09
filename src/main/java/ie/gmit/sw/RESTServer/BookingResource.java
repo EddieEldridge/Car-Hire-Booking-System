@@ -54,12 +54,14 @@ public class BookingResource extends BookingObjectMarshaller
 		// Loop through our booking object from the datbase and map it to our models locally
 		int i;
 		
-		while(i<bookingObjects.size())
+		// Loop through all our bookingObjects and assign the variables from the bookingObject to our local objects
+		// These can be located in the BookingModel package
+		for(BookingObject bo : bookingObjects)
 		{
-			
+			customer.setCustomerID(bo.getCustomerID());
 		}
 		
-		return bookingObjectsAsXML;
+		return null;
 	}
 	
 	// Creates a booking
