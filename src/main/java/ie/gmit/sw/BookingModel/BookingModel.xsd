@@ -14,12 +14,32 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
+			<xsd:element name='customerID' type='xsd:int' />
 			<xsd:element name='firstName' type='xsd:string' />
 			<xsd:element name='lastName' type='xsd:string' />
-			<xsd:element name='ID' type='xsd:int' />
 			<xsd:element name='insuranceID' type='xsd:int' />
-			<xsd:element name='address' type='xsd:string' />
+			<xsd:element name='customerAddress' type='xsd:string' />
 		</xsd:sequence>
 	</xsd:complexType>
+
+		<xsd:complexType name='Booking'>
+		<xsd:annotation>
+			<xsd:documentation>
+				Booking Schema
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name='customerID' type='xsd:int' />
+			<xsd:element name='firstName' type='xsd:string' />
+			<xsd:element name='lastName' type='xsd:string' />
+			<xsd:element name='insuranceID' type='xsd:int' />
+			<xsd:element name='phoneNumber' type='xsd:int' />
+			<xsd:element name='bookingStartDate' type='xsd:string' />
+			<xsd:element name='bookingEndDate' type='xsd:string' />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+		
 
 </xsd:schema>

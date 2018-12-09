@@ -1,27 +1,31 @@
--- Create a new database called 'carBookingSystem'
--- Connect to the 'master' database to run this snippet
-USE master
-GO
--- Create the new database if it does not exist already
-IF NOT EXISTS (
-    SELECT name
-        FROM sys.databases
-        WHERE name = N'carBookingSystem'
-)
-CREATE DATABASE carBookingSystem
-GO
+CREATE DATABASE testSystem;
 
--- Create a new table called 'TableName' in schema 'SchemaName'
--- Drop the table if it already exists
-IF OBJECT_ID('carBookingSystem.Customer', 'U') IS NOT NULL
-DROP TABLE carBookingSystem.Customer
-GO
--- Create the table in the specified schema
-CREATE TABLE carBookingSystem.TableName
+USE bookingSystem1;
+
+CREATE TABLE Customer
 (
-    TableNameId INT NOT NULL PRIMARY KEY, -- primary key column
-    Column1 [NVARCHAR](50) NOT NULL,
-    Column2 [NVARCHAR](50) NOT NULL
-    -- specify more columns here
+    customerID INT NOT NULL PRIMARY KEY,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    insuranceID INT(50) NOT NULL,
+    customerAdrress VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Booking
+(
+    customerID INT NOT NULL PRIMARY KEY,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    insuranceID INT(50) NOT NULL,
+    customerAdrress VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Vehicle
+(
+    customerID INT NOT NULL PRIMARY KEY,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    insuranceID INT(50) NOT NULL,
+    customerAdrress VARCHAR(50) NOT NULL
 );
 GO
