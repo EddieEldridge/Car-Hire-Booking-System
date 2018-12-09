@@ -26,6 +26,7 @@ public class BookingResource extends BookingObjectMarshaller
 {
 	// Variables
 	private BookingRMIServerImpl bookingServiceImpl;
+	BookingObjectMarshaller bom = new BookingObjectMarshaller();
 
 	public BookingResource() throws SQLException, RemoteException
 	{
@@ -36,19 +37,34 @@ public class BookingResource extends BookingObjectMarshaller
 	@GET
 	@Path("showAllBookings")
 	@Produces(MediaType.APPLICATION_XML)
-	public List<BookingObject> getBookings() 
+	public String getBookings() 
 	{
-		System.out.println("inside showallbookings");
 		// Create a list of BookingObjects to store them in when retrieved from the database
 		List<BookingObject> bookingObjects = new ArrayList<BookingObject>();
+		List<Booking> bookings = new ArrayList<Booking>();
 		
 		// Create instances of all our models
 		Booking booking = new Booking();
 		Customer customer = new Customer();
 		Vehicle vehicle = new Vehicle();
 		
+		// Get the bookings from the datbaase
+		bookingObjects = bookingServiceImpl.getBookings();
 		
-		return bookingServiceImpl.getBookings();
+		int i =0;
+		String bookingObjectsAsXML = null;
+		
+		System.out.println(bookingObjects);
+		
+		
+		while(i<bookingObjects.size())
+		{
+			bookingObjectsAsXML = bookingObjectsAsXML.concat(marshalBooking(bookingObjects.get(i)));
+			System.out.println(bookingObjectsAsXML);
+			i++;
+		}
+		
+		return bookingObjectsAsXML;
 	}
 	
 	// Creates a booking

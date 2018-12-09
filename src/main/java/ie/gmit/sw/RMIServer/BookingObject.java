@@ -3,8 +3,12 @@ package ie.gmit.sw.RMIServer;
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+
+import ie.gmit.sw.BookingModel.Booking;
 
 @XmlRootElement
+@XmlSeeAlso(Booking.class)
 public class BookingObject implements Serializable
 {
 	private static final long serialVersionUID = 7877428345616246401L;
@@ -12,6 +16,17 @@ public class BookingObject implements Serializable
 	// Variables
 	private int customerID;
 	private String bookingStartDate;
+	
+	public BookingObject(int customerID, String bookingStartDate, String bookingEndDate, int carRegistration)
+	{
+		super();
+		this.customerID = customerID;
+		this.bookingStartDate = bookingStartDate;
+		this.bookingEndDate = bookingEndDate;
+		this.carRegistration = carRegistration;
+	}
+
+
 	private String bookingEndDate;
 	private int carRegistration;
 	

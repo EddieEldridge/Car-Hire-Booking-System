@@ -79,9 +79,8 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 		{
 			System.out.println("SQL Error: " +e);
 		}
-        
-        // Return the list of bookings from the database
-        System.out.println(bookingsList);
+           
+        // Returns a list of booking objects from the database
 		return bookingsList;
 	}
 

@@ -4,6 +4,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 import ie.gmit.sw.BookingModel.Booking;
+import ie.gmit.sw.RMIServer.BookingObject;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -20,7 +21,7 @@ public class BookingObjectMarshaller
 	}
 	
 	// Function to marshal the Java object(Booking) as XML
-	protected String marshalBooking(Booking booking)
+	public String marshalBooking(BookingObject bookingObjects)
 	{
 		StringWriter stringWriter = new StringWriter();
 		Marshaller xmlMarshaller;
@@ -35,7 +36,7 @@ public class BookingObjectMarshaller
 			
 			// Marshall the booking object as XML
 			xmlMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-			xmlMarshaller.marshal(booking, stringWriter);
+			xmlMarshaller.marshal(bookingObjects, stringWriter);
 		} 
 		catch (JAXBException e)
 		{
@@ -47,7 +48,7 @@ public class BookingObjectMarshaller
 	}
 	
 	// Function to unmarshal the XML to a Java object(Booking)
-	protected Booking unmarshalBooking(String xml)
+	public Booking unmarshalBooking(String xml)
 	{
 		StringReader stringReader = new StringReader(xml);
 		Unmarshaller xmlUnmarshaller;
