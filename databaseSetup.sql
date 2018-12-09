@@ -1,6 +1,6 @@
-CREATE DATABASE testSystem3;
+CREATE DATABASE testSystem4;
 
-USE testSystem3;
+USE testSystem4;
 
 CREATE TABLE Customer
 (
@@ -32,6 +32,20 @@ CREATE TABLE Booking
     carRegistration INT(50) NOT NULL
 );
 
+-- Insert rows into table 'TableName'
+INSERT INTO Booking
+( -- columns to insert data into
+ customerID, bookingStartDate, bookingEndDate, carRegistration
+)
+VALUES
+( -- first row: values for the columns in the list above
+ 123, '19th January', '25th January', 12345
+),
+( -- second row: values for the columns in the list above
+ 456, '26th January', '30th January', 54321
+);
+
+
 CREATE TABLE Vehicle
 (
     carRegistration INT NOT NULL PRIMARY KEY,
@@ -40,6 +54,20 @@ CREATE TABLE Vehicle
     carColour VARCHAR(50) NOT NULL,
     carEngineSize INT(50) NOT NULL
 );
+
+-- Insert rows into table 'TableName'
+INSERT INTO Vehicle
+( -- columns to insert data into
+ carRegistration, carManufacturer, carModel, carColour, carEngineSize
+)
+VALUES
+( -- first row: values for the columns in the list above
+ 12345, 'Toyota', 'Corolla', 'Red', 2
+),
+( -- second row: values for the columns in the list above
+ 54321, 'Honda', 'Civic', 'Black', 5
+);
+
 
 
 GO
