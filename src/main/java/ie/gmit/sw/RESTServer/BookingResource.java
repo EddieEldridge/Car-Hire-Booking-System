@@ -5,11 +5,15 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import ie.gmit.sw.BookingModel.Booking;
+import ie.gmit.sw.BookingModel.Customer;
+import ie.gmit.sw.BookingModel.Vehicle;
 import ie.gmit.sw.RMIServer.BookingObject;
 import ie.gmit.sw.RMIServer.BookingRMIServerImpl;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,6 +37,15 @@ public class BookingResource
 	@Produces(MediaType.APPLICATION_XML)
 	public List<BookingObject> getBookings() 
 	{
+		// Create a list of BookingObjects to store them in when retrieved from the database
+		List<BookingObject> bookingObjects = new ArrayList<BookingObject>();
+		
+		// Create instances of all our models
+		Booking booking = new Booking();
+		Customer customer = new Customer();
+		Vehicle vehicle = new Vehicle();
+		
+		
 		return bookingServiceImpl.getBookings();
 	}
 	

@@ -21,7 +21,6 @@ public class BookingObject implements Serializable
 	}
 	
 	
-	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
