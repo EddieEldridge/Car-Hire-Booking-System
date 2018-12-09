@@ -8,6 +8,8 @@
 
 package ie.gmit.sw.BookingModel;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -49,9 +51,14 @@ import javax.xml.bind.annotation.XmlType;
     "carColour",
     "carEngineSize"
 })
-public class Vehicle {
+public class Vehicle implements Serializable{
 
-    protected int carRegistration;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8170816633532779422L;
+	
+	protected int carRegistration;
     @XmlElement(required = true)
     protected String carManufacturer;
     @XmlElement(required = true)

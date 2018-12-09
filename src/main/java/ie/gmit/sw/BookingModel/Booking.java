@@ -8,6 +8,8 @@
 
 package ie.gmit.sw.BookingModel;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -47,9 +49,17 @@ import javax.xml.bind.annotation.XmlType;
     "bookingEndDate",
     "carRegistration"
 })
-public class Booking {
+public class Booking implements Serializable{
 
-    protected int customerID;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3079361258492580264L;
+	/**
+	 * 
+	 */
+	
+	protected int customerID;
     @XmlElement(required = true)
     protected String bookingStartDate;
     @XmlElement(required = true)
