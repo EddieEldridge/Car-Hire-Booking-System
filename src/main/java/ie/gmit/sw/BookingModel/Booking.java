@@ -16,23 +16,22 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 
- * 				Customer Schema
+ * 				Booking Schema
  * 			
  * 
- * <p>Java class for Customer complex type.
+ * <p>Java class for Booking complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Customer">
+ * &lt;complexType name="Booking">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="customerID" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="insuranceID" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="customerAddress" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="bookingStartDate" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="bookingEndDate" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="carRegistration" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,23 +41,20 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Customer", propOrder = {
+@XmlType(name = "Booking", propOrder = {
     "customerID",
-    "firstName",
-    "lastName",
-    "insuranceID",
-    "customerAddress"
+    "bookingStartDate",
+    "bookingEndDate",
+    "carRegistration"
 })
-public class Customer {
+public class Booking {
 
     protected int customerID;
     @XmlElement(required = true)
-    protected String firstName;
+    protected String bookingStartDate;
     @XmlElement(required = true)
-    protected String lastName;
-    protected int insuranceID;
-    @XmlElement(required = true)
-    protected String customerAddress;
+    protected String bookingEndDate;
+    protected int carRegistration;
 
     /**
      * Gets the value of the customerID property.
@@ -77,91 +73,67 @@ public class Customer {
     }
 
     /**
-     * Gets the value of the firstName property.
+     * Gets the value of the bookingStartDate property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getFirstName() {
-        return firstName;
+    public String getBookingStartDate() {
+        return bookingStartDate;
     }
 
     /**
-     * Sets the value of the firstName property.
+     * Sets the value of the bookingStartDate property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setFirstName(String value) {
-        this.firstName = value;
+    public void setBookingStartDate(String value) {
+        this.bookingStartDate = value;
     }
 
     /**
-     * Gets the value of the lastName property.
+     * Gets the value of the bookingEndDate property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getLastName() {
-        return lastName;
+    public String getBookingEndDate() {
+        return bookingEndDate;
     }
 
     /**
-     * Sets the value of the lastName property.
+     * Sets the value of the bookingEndDate property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setLastName(String value) {
-        this.lastName = value;
+    public void setBookingEndDate(String value) {
+        this.bookingEndDate = value;
     }
 
     /**
-     * Gets the value of the insuranceID property.
+     * Gets the value of the carRegistration property.
      * 
      */
-    public int getInsuranceID() {
-        return insuranceID;
+    public int getCarRegistration() {
+        return carRegistration;
     }
 
     /**
-     * Sets the value of the insuranceID property.
+     * Sets the value of the carRegistration property.
      * 
      */
-    public void setInsuranceID(int value) {
-        this.insuranceID = value;
-    }
-
-    /**
-     * Gets the value of the customerAddress property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
-
-    /**
-     * Sets the value of the customerAddress property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCustomerAddress(String value) {
-        this.customerAddress = value;
+    public void setCarRegistration(int value) {
+        this.carRegistration = value;
     }
 
 }

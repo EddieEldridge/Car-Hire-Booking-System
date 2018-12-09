@@ -1,6 +1,6 @@
-CREATE DATABASE testSystem;
+CREATE DATABASE testSystem1;
 
-USE bookingSystem1;
+USE testSystem1;
 
 CREATE TABLE Customer
 (

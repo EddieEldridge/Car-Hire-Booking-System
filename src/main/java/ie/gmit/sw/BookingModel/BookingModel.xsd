@@ -43,7 +43,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name='vehicleRegistration' type='xsd:int' />
+			<xsd:element name='carRegistration' type='xsd:int' />
 			<xsd:element name='carManufacturer' type='xsd:string' />
 			<xsd:element name='carModel' type='xsd:string' />
 			<xsd:element name='carColour' type='xsd:string' />
