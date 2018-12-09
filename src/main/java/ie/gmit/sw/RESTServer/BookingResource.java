@@ -51,7 +51,7 @@ public class BookingResource extends BookingObjectMarshaller
 		// 
 		String objectsAsXML = "";
 		String objectAsXML;
-		int i=0;
+		int i;
 		
 		// Get the bookings from the datbaase
 		bookingObjects = bookingServiceImpl.getBookings();
@@ -75,7 +75,7 @@ public class BookingResource extends BookingObjectMarshaller
 		try
 		{
 			// Create variable to assign to XML
-			while(i<bookings.size())
+			for(i=0; i<bookings.size(); i++)
 			{
 				objectAsXML = marshalBooking(bookings.get(i));
 				objectsAsXML.concat(objectAsXML);
