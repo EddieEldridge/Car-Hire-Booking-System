@@ -51,6 +51,7 @@ public class BookingResource extends BookingObjectMarshaller
 		// 
 		String objectsAsXML = "";
 		String objectAsXML;
+		String trimmedObjectsAsXML = "";
 		int i;
 		
 		// Get the bookings from the datbaase
@@ -78,8 +79,14 @@ public class BookingResource extends BookingObjectMarshaller
 			for(i=0; i<bookings.size(); i++)
 			{
 				objectAsXML = marshalBooking(bookings.get(i));
-				System.out.println(objectAsXML);
 				objectsAsXML = objectAsXML.concat(objectAsXML);
+
+				// Trim off the header from the XML as its upsetting the formatting
+				if(i>0)
+				{
+					trimmedObjectsAsXML = objectAsXML.substring(objectAsXML.indexOf('\n')+1);
+					objectsAsXML = objectAsXML.concat(trimmedObjectsAsXML);
+				}
 			}
 			
 			System.out.println("Succesfully marshalled to XML.");
