@@ -1,6 +1,6 @@
-CREATE DATABASE testSystem4;
+CREATE DATABASE testSystem6;
 
-USE testSystem4;
+USE testSystem6;
 
 CREATE TABLE Customer
 (
@@ -26,7 +26,10 @@ VALUES
 
 CREATE TABLE Booking
 (
-    customerID INT NOT NULL PRIMARY KEY,
+    bookingID INT NOT NULL PRIMARY KEY,
+    customerID INT(50) NOT NULL,
+    carID INT(50) NOT NULL,
+    bookingStartDate VARCHAR(50) NOT NULL,
     bookingStartDate VARCHAR(50) NOT NULL,
     bookingEndDate VARCHAR(50) NOT NULL,
     carRegistration INT(50) NOT NULL
@@ -35,21 +38,22 @@ CREATE TABLE Booking
 -- Insert rows into table 'TableName'
 INSERT INTO Booking
 ( -- columns to insert data into
- customerID, bookingStartDate, bookingEndDate, carRegistration
+ bookingID, customerID, carID, bookingStartDate, bookingEndDate, carRegistration
 )
 VALUES
 ( -- first row: values for the columns in the list above
- 123, '19th January', '25th January', 12345
+ 999, 123, 12345, '19th January', '25th January', 12345
 ),
 ( -- second row: values for the columns in the list above
- 456, '26th January', '30th January', 54321
+ 666, 456, 54321,'26th January', '30th January', 54321
 );
 
 
 CREATE TABLE Vehicle
 (
-    carRegistration INT NOT NULL PRIMARY KEY,
+    carID INT NOT NULL PRIMARY KEY,
     carManufacturer VARCHAR(50) NOT NULL,
+    carRegistration VARCHAR(50) NOT NULL,
     carModel VARCHAR(50) NOT NULL,
     carColour VARCHAR(50) NOT NULL,
     carEngineSize INT(50) NOT NULL
@@ -58,14 +62,14 @@ CREATE TABLE Vehicle
 -- Insert rows into table 'TableName'
 INSERT INTO Vehicle
 ( -- columns to insert data into
- carRegistration, carManufacturer, carModel, carColour, carEngineSize
+ carID, carManufacturer, carRegistration, carModel, carColour, carEngineSize
 )
 VALUES
 ( -- first row: values for the columns in the list above
- 12345, 'Toyota', 'Corolla', 'Red', 2
+ 12345, 103452, 'Toyota', 'Corolla', 'Red', 2
 ),
 ( -- second row: values for the columns in the list above
- 54321, 'Honda', 'Civic', 'Black', 5
+ 54321, 103455, 'Honda', 'Civic', 'Black', 5
 );
 
 

@@ -50,18 +50,13 @@ public class BookingResource extends BookingObjectMarshaller
 		
 		// Get the bookings from the datbaase
 		bookingObjects = bookingServiceImpl.getBookings();
-		
-		int i =0;
-		String bookingObjectsAsXML = null;
-		
-		System.out.println(bookingObjects);
-		
+				
+		// Loop through our booking object from the datbase and map it to our models locally
+		int i;
 		
 		while(i<bookingObjects.size())
 		{
-			bookingObjectsAsXML = bookingObjectsAsXML.concat(marshalBooking(bookingObjects.get(i)));
-			System.out.println(bookingObjectsAsXML);
-			i++;
+			
 		}
 		
 		return bookingObjectsAsXML;

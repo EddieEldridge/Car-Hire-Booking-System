@@ -14,7 +14,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name='customerID' type='xsd:int' />
+			<xsd:element name='bookingID' type='xsd:int' />
 			<xsd:element name='firstName' type='xsd:string' />
 			<xsd:element name='lastName' type='xsd:string' />
 			<xsd:element name='insuranceID' type='xsd:int' />
@@ -29,7 +29,9 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
+			<xsd:element name='bookingID' type='xsd:int' />
 			<xsd:element name='customerID' type='xsd:int' />
+			<xsd:element name='carID' type='xsd:int' />
 			<xsd:element name='bookingStartDate' type='xsd:string' />
 			<xsd:element name='bookingEndDate' type='xsd:string' />
 			<xsd:element name='carRegistration' type='xsd:int' />
@@ -43,6 +45,7 @@
 			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
+			<xsd:element name='carID' type='xsd:int' />
 			<xsd:element name='carRegistration' type='xsd:int' />
 			<xsd:element name='carManufacturer' type='xsd:string' />
 			<xsd:element name='carModel' type='xsd:string' />
