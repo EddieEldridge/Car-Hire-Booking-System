@@ -14,7 +14,7 @@ import java.util.List;
 public class BookingRMIServerImpl extends UnicastRemoteObject implements BookingRMIServerInterface
 {
 	// Variables
-	String url = "jdbc:mysql://localhost:3306/bookings";
+	String url = "jdbc:mysql://localhost:3306/testSystem4";
 	String username = "root";
 	String password = "osgard100";
 	Statement statement = null;
@@ -42,13 +42,18 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 	public List<BookingObject> getBookings()
 	{
 		// http://localhost:8080/DistributedSystemsG00337490/webapi/BookingSystem/showAllBookings
-		List<BookingObject> bookings = new ArrayList<>();
 		
+		// Create list to store bookings 
+		List<BookingObject> bookingsList = new ArrayList<>();
+		
+		// Creat booking to add to list of bookings
+		BookingObject bookingObject = new BookingObject();
+				
 		System.out.println("Getting all bookings...");
 		        
 		// Create the sql statement we went to execute on our
 		System.out.println(url);
-		String sql = "select * from bookings;";
+		String sql = "select * from booking;";
 		
 		// Execute the statement
         try
@@ -60,18 +65,23 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 			
 			while(rs.next())
 			{
-				String firstName = rs.getString(1);
-				String secondName = rs.getString(2);
-				int id = rs.getInt(3);
-
-				System.out.println("\nFirst Name: " + firstName + "\nSecond Name: " + secondName + "\nID: " + id);
+				// Read in the data from the database to our object
+				bookingObject.setCustomerID(rs.getInt("customerID"));
+				bookingObject.setBookingStartDate(rs.getString("bookingStartDate"));
+				bookingObject.setBookingEndDate(rs.getString("bookingEndDate"));
+				bookingObject.setCarRegistration(rs.getInt("carRegistration"));
+				
+				// Add the booking to our list of bookings retrieved from the database
+				bookingsList.add(bookingObject);
 			}
 		} 
         catch (SQLException e)
 		{
 			System.out.println("SQL Error: " +e);
 		}
-		return bookings;
+        
+        // Return the list of bookings from the database
+		return bookingsList;
 	}
 
 	// Shows bookings with a specified ID

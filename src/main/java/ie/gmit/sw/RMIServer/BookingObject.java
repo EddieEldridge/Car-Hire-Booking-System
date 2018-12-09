@@ -13,8 +13,80 @@ public class BookingObject implements Serializable
 	private int customerID;
 	private String bookingStartDate;
 	private String bookingEndDate;
-	private String carRegistration;
+	private int carRegistration;
 	
+	/**
+	 * @return the customerID
+	 */
+	public int getCustomerID()
+	{
+		return customerID;
+	}
+
+
+	/**
+	 * @param customerID the customerID to set
+	 */
+	public void setCustomerID(int customerID)
+	{
+		this.customerID = customerID;
+	}
+
+
+	/**
+	 * @return the bookingStartDate
+	 */
+	public String getBookingStartDate()
+	{
+		return bookingStartDate;
+	}
+
+
+	/**
+	 * @param bookingStartDate the bookingStartDate to set
+	 */
+	public void setBookingStartDate(String bookingStartDate)
+	{
+		this.bookingStartDate = bookingStartDate;
+	}
+
+
+	/**
+	 * @return the bookingEndDate
+	 */
+	public String getBookingEndDate()
+	{
+		return bookingEndDate;
+	}
+
+
+	/**
+	 * @param bookingEndDate the bookingEndDate to set
+	 */
+	public void setBookingEndDate(String bookingEndDate)
+	{
+		this.bookingEndDate = bookingEndDate;
+	}
+
+
+	/**
+	 * @return the carRegistration
+	 */
+	public int getCarRegistration()
+	{
+		return carRegistration;
+	}
+
+
+	/**
+	 * @param carRegistration the carRegistration to set
+	 */
+	public void setCarRegistration(int carRegistration)
+	{
+		this.carRegistration = carRegistration;
+	}
+
+
 	public BookingObject()
 	{
 		
@@ -31,75 +103,5 @@ public class BookingObject implements Serializable
 				+ ", bookingEndDate=" + bookingEndDate + ", carRegistration=" + carRegistration + "]";
 	}
 
-
-
-	public BookingObject(int customerID, String bookingStartDate, String bookingEndDate, String carRegistration)
-	{
-		super();
-		this.customerID = customerID;
-		this.bookingStartDate = bookingStartDate;
-		this.bookingEndDate = bookingEndDate;
-		this.carRegistration = carRegistration;
-	}
-
-
-
-	/**
-	 * @return the customerID
-	 */
-	public int getCustomerID()
-	{
-		return customerID;
-	}
-	/**
-	 * @param customerID the customerID to set
-	 */
-	public void setCustomerID(int customerID)
-	{
-		this.customerID = customerID;
-	}
-	/**
-	 * @return the bookingStartDate
-	 */
-	public String getBookingStartDate()
-	{
-		return bookingStartDate;
-	}
-	/**
-	 * @param bookingStartDate the bookingStartDate to set
-	 */
-	public void setBookingStartDate(String bookingStartDate)
-	{
-		this.bookingStartDate = bookingStartDate;
-	}
-	/**
-	 * @return the bookingEndDate
-	 */
-	public String getBookingEndDate()
-	{
-		return bookingEndDate;
-	}
-	/**
-	 * @param bookingEndDate the bookingEndDate to set
-	 */
-	public void setBookingEndDate(String bookingEndDate)
-	{
-		this.bookingEndDate = bookingEndDate;
-	}
-	/**
-	 * @return the carRegistration
-	 */
-	public String getCarRegistration()
-	{
-		return carRegistration;
-	}
-	/**
-	 * @param carRegistration the carRegistration to set
-	 */
-	public void setCarRegistration(String carRegistration)
-	{
-		this.carRegistration = carRegistration;
-	}
-	
 
 }

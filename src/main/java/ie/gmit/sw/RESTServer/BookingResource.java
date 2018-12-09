@@ -45,6 +45,7 @@ public class BookingResource
 		Customer customer = new Customer();
 		Vehicle vehicle = new Vehicle();
 		
+		List<>
 		
 		return bookingServiceImpl.getBookings();
 	}
