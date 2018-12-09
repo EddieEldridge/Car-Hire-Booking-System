@@ -30,12 +30,23 @@
 		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:element name='customerID' type='xsd:int' />
-			<xsd:element name='firstName' type='xsd:string' />
-			<xsd:element name='lastName' type='xsd:string' />
-			<xsd:element name='insuranceID' type='xsd:int' />
-			<xsd:element name='phoneNumber' type='xsd:int' />
 			<xsd:element name='bookingStartDate' type='xsd:string' />
 			<xsd:element name='bookingEndDate' type='xsd:string' />
+			<xsd:element name='vehicleRegBooked' type='xsd:string' />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name='Vehicle'>
+		<xsd:annotation>
+			<xsd:documentation>
+				Vehicle Schema
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name='customerID' type='xsd:int' />
+			<xsd:element name='bookingStartDate' type='xsd:string' />
+			<xsd:element name='bookingEndDate' type='xsd:string' />
+			<xsd:element name='vehicleRegBooked' type='xsd:string' />
 		</xsd:sequence>
 	</xsd:complexType>
 

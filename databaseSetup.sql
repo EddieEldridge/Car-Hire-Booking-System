@@ -14,10 +14,9 @@ CREATE TABLE Customer
 CREATE TABLE Booking
 (
     customerID INT NOT NULL PRIMARY KEY,
-    firstName VARCHAR(50) NOT NULL,
-    lastName VARCHAR(50) NOT NULL,
-    insuranceID INT(50) NOT NULL,
-    customerAdrress VARCHAR(50) NOT NULL
+    bookingStartDate VARCHAR(50) NOT NULL,
+    bookingEndDate VARCHAR(50) NOT NULL,
+    vehicleRegBooked VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Vehicle
