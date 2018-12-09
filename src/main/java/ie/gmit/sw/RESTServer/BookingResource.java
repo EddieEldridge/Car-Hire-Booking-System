@@ -5,7 +5,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ie.gmit.sw.RMIServer.Booking;
+import ie.gmit.sw.RMIServer.BookingObject;
 import ie.gmit.sw.RMIServer.BookingRMIServerImpl;
 
 import java.rmi.RemoteException;
@@ -31,7 +31,7 @@ public class BookingResource
 	@GET
 	@Path("showAllBookings")
 	@Produces(MediaType.APPLICATION_XML)
-	public List<Booking> getBookings() 
+	public List<BookingObject> getBookings() 
 	{
 		return bookingServiceImpl.getBookings();
 	}
@@ -39,7 +39,7 @@ public class BookingResource
 	// Creates a booking
 	@POST
 	@Path("createBooking")
-	public Booking createBooking(Booking booking1)
+	public BookingObject createBooking(BookingObject booking1)
 	{
 		try
 		{
@@ -58,7 +58,7 @@ public class BookingResource
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	@Path("booking/{orderID}")
-	public Booking getBooking(@PathParam("orderID") int orderID) 
+	public BookingObject getBooking(@PathParam("orderID") int orderID) 
 	{
 		try
 		{

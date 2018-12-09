@@ -39,10 +39,10 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 
 
 	// Shows all current bookings
-	public List<Booking> getBookings()
+	public List<BookingObject> getBookings()
 	{
 		// http://localhost:8080/DistributedSystemsG00337490/webapi/BookingSystem/showAllBookings
-		List<Booking> bookings = new ArrayList<>();
+		List<BookingObject> bookings = new ArrayList<>();
 		
 		System.out.println("Getting all bookings...");
 		        
@@ -76,7 +76,7 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 
 	// Shows bookings with a specified ID
 	@Override
-	public Booking getBooking(int orderID) throws RemoteException
+	public BookingObject getBooking(int orderID) throws RemoteException
 	{
 
 		/*
@@ -93,7 +93,7 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 
 	// Create a booking
 	@Override
-	public void createBooking(Booking booking) throws RemoteException
+	public void createBooking(BookingObject booking) throws RemoteException
 	{
 		// Create the sql statement we went to execute on our
 		// INSERT INTO bookings(firstName, secondName, ID) VALUES ("Eddie", "Eldridge", 5);

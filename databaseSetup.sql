@@ -1,6 +1,6 @@
-CREATE DATABASE testSystem1;
+CREATE DATABASE testSystem3;
 
-USE testSystem1;
+USE testSystem3;
 
 CREATE TABLE Customer
 (
@@ -9,6 +9,19 @@ CREATE TABLE Customer
     lastName VARCHAR(50) NOT NULL,
     insuranceID INT(50) NOT NULL,
     customerAdrress VARCHAR(50) NOT NULL
+);
+
+-- Insert rows into table 'TableName'
+INSERT INTO Customer
+( -- columns to insert data into
+ customerID, firstName, lastName, insuranceID, customerAdrress
+)
+VALUES
+( -- first row: values for the columns in the list above
+ 123, 'Ed', 'Eldridge', 999, 'Galway'
+),
+( -- second row: values for the columns in the list above
+ 456, 'John', 'Christ', 666, 'Dublin'
 );
 
 CREATE TABLE Booking
@@ -27,4 +40,6 @@ CREATE TABLE Vehicle
     carColour VARCHAR(50) NOT NULL,
     carEngineSize INT(50) NOT NULL
 );
+
+
 GO

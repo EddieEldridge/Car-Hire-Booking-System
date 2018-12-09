@@ -7,10 +7,10 @@ import java.util.List;
 public interface BookingRMIServerInterface extends Remote
 {
 	// Declare booking methods
-	public List<Booking> getBookings() throws RemoteException;
+	public List<BookingObject> getBookings() throws RemoteException;
 	
-	public Booking getBooking(int orderID) throws RemoteException;
+	public BookingObject getBooking(int orderID) throws RemoteException;
 	
-	public void createBooking(Booking booking) throws RemoteException;
+	public void createBooking(BookingObject booking) throws RemoteException;
 
 }
