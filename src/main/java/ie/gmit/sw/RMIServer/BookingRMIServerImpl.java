@@ -117,18 +117,16 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 	@Override
 	public void createBooking(BookingObject booking) throws RemoteException
 	{
-		// Get all the bookings using the above getbookings Method
-		BookingObject bookingObjectToAdd = new BookingObject();
-				
+		
 		// Create the sql statement we went to execute on our
 		System.out.println(url);
 		String sql = "insert into booking(bookingID, customerID, carID, bookingStartDate, bookingEndDate, carRegistration) VALUES(" 
-		+ bookingObjectToAdd.getBookingID() + "," 
-		+ bookingObjectToAdd.getCustomerID() + ","
-		+ bookingObjectToAdd.getCarID() + ","
-		+ "'" + bookingObjectToAdd.getBookingStartDate() + "',"
-		+ "'" + bookingObjectToAdd.getBookingEndDate() + "',"
-		+ "'" + bookingObjectToAdd.getCarRegistration() + "')"
+		+ booking.getBookingID() + "," 
+		+ booking.getCustomerID() + ","
+		+ booking.getCarID() + ","
+		+ "'" + booking.getBookingStartDate() + "',"
+		+ "'" + booking.getBookingEndDate() + "',"
+		+ "'" + booking.getCarRegistration() + "')"
 		+ ";";
 				
 		System.out.println("Creating booking...!");
