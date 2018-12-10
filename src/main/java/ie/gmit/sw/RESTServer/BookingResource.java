@@ -22,6 +22,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
@@ -149,17 +150,15 @@ public class BookingResource extends BookingObjectMarshaller
 	@POST
 	@Path("createBooking")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public Response createBooking(String response)
-	{
-		String customerID = request.getParamater("customerID");
-		
-		
+	public Response createBooking(@FormParam("customerID")String customerID)
+	{		
 		System.out.println("Inside POST METHOD");
-		System.out.println(response);
-		
+		System.out.println(customerID);
+
 		// Create instance of booking to assign values from jsp
-		Booking bookingObjectToMarshall = unmarshalBooking(response);
+		//Booking bookingObjectToMarshall = unmarshalBooking(response);
 		
+		/*
 		BookingObject bookingObjectMarshalled = new BookingObject();
 		
 		
@@ -181,7 +180,7 @@ public class BookingResource extends BookingObjectMarshaller
 		{
 			System.out.println("Resource Error: " + e);
 		}
-		
+		*/
 		return Response.ok().build();
 	}
 }
