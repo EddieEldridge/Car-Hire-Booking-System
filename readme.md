@@ -35,7 +35,54 @@ The project can be broken down into 4 parts
 
 
 # How to run the program
-The following program wa
+
+#### Step 1
+Setup the database
+
+```
+ mysql -u root -p -s < <the path of the mysql script>>
+```
+
+In my case it was 
+
+```
+ mysql -u root -p -s < C:\Users\Eddie\Desktop\DistributedSystems-master\databaseSetup.sql
+```
+This will create and populate the database.
+
+#### Step 2
+Import the project into Eclipse.
+
+Once imported you need to ensure that you have a Tomcat Server added to the Java Build Path as this will be required to simulate the RMI functionality of the program as well as running the RESTful web service and client.
+
+![capture](https://user-images.githubusercontent.com/22448079/49764016-36ec9a80-fcc6-11e8-81b5-2559129f0b77.PNG)
+
+A Java SDK (not JRE) installation is also recommended. I used Java 1.7 to create this project.
+
+#### Step 3
+Once the database is setup, the project has been imported and any errors or problems that exist have been resolved, you can begin to <b>attempt</b> to run the project. Due to the nature of Eclipse, it probably won't work. If it does however import with no errors, you can run the files in the following order
+
+```
+Right Click BookingRMIServer > Run as > Java Application
+```
+
+```
+Right Click BookingRMIServer > Run as > Run on Server
+```
+
+```
+Right Click DistributedSystemsG00337490 > Run as > Run on Server
+```
+
+If all goes well, an index.jsp page should appear.
+
+
+![capture](https://user-images.githubusercontent.com/22448079/49764091-60a5c180-fcc6-11e8-9acc-e0fd95bbbf69.PNG)
+
+From here you can interact remotely with the database and perform some CRD functionality on the database.
+
+# Issues
+I am aware that when trying to view all the bookings from the database, they are only displayed as XML.
 
 # Technologies
 * [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services)
@@ -44,7 +91,8 @@ The following program wa
 * [Java 1.8](https://www.java.com/en/download/)
 * [Tomcat Server](https://tomcat.apache.org/)
 * [Eclipse IDE](https://www.eclipse.org/ide/)
+* [MySQL Server 5.7](https://dev.mysql.com/downloads/mysql/5.7.html)
 
 # Developers
-[Eddie Eldridge](https://github.com/EddieEldridge)	
+* [Eddie Eldridge](https://github.com/EddieEldridge)	
 
