@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -146,6 +147,7 @@ public class BookingResource extends BookingObjectMarshaller
 	// Creates a booking
 	@POST
 	@Path("createBooking")
+	@Consumes(MediaType.APPLICATION_XML)
 	public Response createBooking(String response)
 	{
 		System.out.println(response);
@@ -156,18 +158,23 @@ public class BookingResource extends BookingObjectMarshaller
 		BookingObject bookingObjectMarshalled = new BookingObject();
 		
 		bookingObjectMarshalled.setBookingID(bookingObjectToMarshall.getBookingID());
-		bookingObjectMarshalled.setCustomerID(bookingObjectMarshalled.getBookingID());
+		bookingObjectMarshalled.setCustomerID(bookingObjectToMarshall.getBookingID());
+		bookingObjectMarshalled.setCarID(bookingObjectToMarshall.getCarID());
+		bookingObjectMarshalled.setBookingStartDate(bookingObjectToMarshall.getBookingStartDate());
+		bookingObjectMarshalled.setBookingEndDate(bookingObjectToMarshall.getBookingStartDate());
+		bookingObjectMarshalled.setCarRegistration(bookingObjectToMarshall.getCarRegistration());
+		
 		try
 		{
-			bookingServiceImpl.createBooking(booking1);
+			// Send the mapped object to the RMI Server to be read in to the database
+			bookingServiceImpl.createBooking(bookingObjectMarshalled);
 		} 
 		catch (RemoteException e)
 		{
 			System.out.println("Resource Error: " + e);
 		}
 		
-		// Return the createdBooking
-		return booking1;
+		return Response.ok().build();
 	}
 }
 

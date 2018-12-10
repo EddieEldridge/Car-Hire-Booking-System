@@ -154,35 +154,35 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 	}
 	
 	// Deletes a booking
-		@Override
-		public void deleteBooking(int bookingID) throws RemoteException
+	@Override
+	public void deleteBooking(int bookingID) throws RemoteException
+	{
+		System.out.println("Getting booking...!");
+		
+		// Get all the bookings using the above getbookings Method
+		List<BookingObject> bookingsList =  getBookings();
+			
+		// Create the sql statement we went to execute on our
+		String sql = "DELETE FROM Booking WHERE bookingID=" + bookingID +";";
+		
+
+		// Execute the statement
+        try
 		{
-			System.out.println("Getting booking...!");
+			Statement statement = connection.createStatement();
+			System.out.println(statement);
+        	System.out.println("Executing statement!");
+			statement.executeUpdate(sql);
 			
-			// Get all the bookings using the above getbookings Method
-			List<BookingObject> bookingsList =  getBookings();
-				
-			// Create the sql statement we went to execute on our
-			String sql = "DELETE FROM Booking WHERE bookingID=" + bookingID +";";
-			
+			// Print result
+			System.out.println("Booking deleted!");
 
-			// Execute the statement
-	        try
-			{
-				Statement statement = connection.createStatement();
-				System.out.println(statement);
-	        	System.out.println("Executing statement!");
-				statement.executeUpdate(sql);
-				
-				// Print result
-				System.out.println("Booking deleted!");
-
-			}
-	        catch (SQLException e)
-			{
-				System.out.println("SQL Error: " +e);
-			}
-	        
 		}
+        catch (SQLException e)
+		{
+			System.out.println("SQL Error: " +e);
+		}
+        
+	}
 
 }
