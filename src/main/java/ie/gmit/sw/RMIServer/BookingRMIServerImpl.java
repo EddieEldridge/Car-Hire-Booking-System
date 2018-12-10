@@ -46,9 +46,6 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 		// Create list to store bookings 
 		List<BookingObject> bookingsList = new ArrayList<>();
 		
-		// Creat booking to add to list of bookings
-		BookingObject bookingObject = new BookingObject();
-				
 		System.out.println("Getting all bookings...");
 		        
 		// Create the sql statement we went to execute on our
@@ -63,8 +60,13 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
         	System.out.println("Executing statement!");
 			ResultSet rs = statement.executeQuery(sql);
 			
+			System.out.println("RESULT SET: " + rs);
+			
 			while(rs.next())
 			{
+				// Create a new empty instance of bookingObject for each booking
+				BookingObject bookingObject = new BookingObject();
+				
 				// Read in the data from the database to our object
 				bookingObject.setBookingID(rs.getInt("bookingID"));
 				bookingObject.setCustomerID(rs.getInt("customerID"));
@@ -76,8 +78,6 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 				// Add the booking to our list of bookings retrieved from the database
 				bookingsList.add(bookingObject);
 			}
-			
-			System.out.println(bookingsList);
 		} 
         catch (SQLException e)
 		{
