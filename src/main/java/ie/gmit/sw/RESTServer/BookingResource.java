@@ -4,6 +4,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import ie.gmit.sw.BookingModel.Booking;
 import ie.gmit.sw.BookingModel.Customer;
@@ -48,11 +49,6 @@ public class BookingResource extends BookingObjectMarshaller
 		Customer customer = new Customer();
 		Vehicle vehicle = new Vehicle();
 		
-		// 
-		String objectsAsXML = "";
-		String objectAsXML;
-		String trimmedObjectsAsXML = "";
-		int i;
 		
 		// Get the bookings from the datbaase
 		bookingObjects = bookingServiceImpl.getBookings();
@@ -111,24 +107,6 @@ public class BookingResource extends BookingObjectMarshaller
 		return bookings;
 	}
 	
-	// Creates a booking
-	@POST
-	@Path("createBooking")
-	public BookingObject createBooking(BookingObject booking1)
-	{
-		try
-		{
-			bookingServiceImpl.createBooking(booking1);
-		} 
-		catch (RemoteException e)
-		{
-			System.out.println("Resource Error: " + e);
-		}
-		
-		// Return the createdBooking
-		return booking1;
-	}
-	
 	// Shows bookings with a specified ID
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
@@ -162,7 +140,35 @@ public class BookingResource extends BookingObjectMarshaller
 			System.out.println("Resource Error: " + e);
 		}
 		
-	}	
+	}
+	
+
+	// Creates a booking
+	@POST
+	@Path("createBooking")
+	public Response createBooking(String response)
+	{
+		System.out.println(response);
+		
+		// Create instance of booking to assign values from jsp
+		Booking bookingObjectToMarshall = unmarshalBooking(response);
+		
+		BookingObject bookingObjectMarshalled = new BookingObject();
+		
+		bookingObjectMarshalled.setBookingID(bookingObjectToMarshall.getBookingID());
+		bookingObjectMarshalled.setCustomerID(bookingObjectMarshalled.getBookingID());
+		try
+		{
+			bookingServiceImpl.createBooking(booking1);
+		} 
+		catch (RemoteException e)
+		{
+			System.out.println("Resource Error: " + e);
+		}
+		
+		// Return the createdBooking
+		return booking1;
+	}
 }
 
 

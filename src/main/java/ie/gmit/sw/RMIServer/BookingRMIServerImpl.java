@@ -14,7 +14,7 @@ import java.util.List;
 public class BookingRMIServerImpl extends UnicastRemoteObject implements BookingRMIServerInterface
 {
 	// Variables
-	String url = "jdbc:mysql://localhost:3306/testSystem8";
+	String url = "jdbc:mysql://localhost:3306/testSystem9";
 	String username = "root";
 	String password = "osgard100";
 	Statement statement = null;
@@ -119,12 +119,19 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 	public void createBooking(BookingObject booking) throws RemoteException
 	{
 		// Get all the bookings using the above getbookings Method
-		List<BookingObject> bookingsList =  getBookings();
+		BookingObject bookingObjectToAdd = new BookingObject();
 				
 		// Create the sql statement we went to execute on our
 		// INSERT INTO bookings(firstName, secondName, ID) VALUES ("Eddie", "Eldridge", 5);
 		System.out.println(url);
-		String sql = "insert into bookings(firstName, lastName, ID) VALUES ('Jesus', 'Christ', '100');";
+		String sql = "insert into booking(bookingID, customerID, carID, bookingStartDate, bookingEndDate, carRegistration) VALUES +("
+		+ bookingObjectToAdd.getBookingID() + "), ("
+		+ bookingObjectToAdd.getCustomerID() + "), ("
+		+ bookingObjectToAdd.getCarID() + "), ("
+		+ bookingObjectToAdd.getBookingStartDate() + "), ("
+		+ bookingObjectToAdd.getBookingEndDate() + "), ("
+		+ bookingObjectToAdd.getCarRegistration() + ")"
+		+ ";";
 				
 		System.out.println("Creating booking...!");
 		// Execute the statement
