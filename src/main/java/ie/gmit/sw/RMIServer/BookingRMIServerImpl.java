@@ -122,13 +122,13 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 				
 		// Create the sql statement we went to execute on our
 		System.out.println(url);
-		String sql = "insert into booking(bookingID, customerID, carID, bookingStartDate, bookingEndDate, carRegistration) VALUES +("
-		+ bookingObjectToAdd.getBookingID() + "), ("
-		+ bookingObjectToAdd.getCustomerID() + "), ("
-		+ bookingObjectToAdd.getCarID() + "), ("
-		+ bookingObjectToAdd.getBookingStartDate() + "), ("
-		+ bookingObjectToAdd.getBookingEndDate() + "), ("
-		+ bookingObjectToAdd.getCarRegistration() + ")"
+		String sql = "insert into booking(bookingID, customerID, carID, bookingStartDate, bookingEndDate, carRegistration) VALUES(" 
+		+ bookingObjectToAdd.getBookingID() + "," 
+		+ bookingObjectToAdd.getCustomerID() + ","
+		+ bookingObjectToAdd.getCarID() + ","
+		+ "'" + bookingObjectToAdd.getBookingStartDate() + "',"
+		+ "'" + bookingObjectToAdd.getBookingEndDate() + "',"
+		+ "'" + bookingObjectToAdd.getCarRegistration() + "')"
 		+ ";";
 				
 		System.out.println("Creating booking...!");
@@ -136,7 +136,7 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
         try
 		{
 			Statement statement = connection.createStatement();
-        	System.out.println("Executing statement!");
+        	System.out.println("Executing statement: " + sql);
 			statement.executeUpdate(sql);
 			
 		} 
