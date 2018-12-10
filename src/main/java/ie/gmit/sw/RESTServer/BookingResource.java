@@ -56,20 +56,25 @@ public class BookingResource extends BookingObjectMarshaller
 		
 		// Get the bookings from the datbaase
 		bookingObjects = bookingServiceImpl.getBookings();
-						
+				
+
+		
 		// Loop through all our bookingObjects and assign the variables from the bookingObject to our local objects
 		// These can be located in the BookingModel package
 		for(BookingObject bo : bookingObjects)
 		{
 			booking.setBookingID(bo.getBookingID());
-			customer.setCustomerID(bo.getCustomerID());
-			vehicle.setCarID(bo.getCarID());
+			booking.setCustomerID(bo.getCustomerID());
+			booking.setCarID(bo.getCarID());
 			booking.setBookingStartDate(bo.getBookingStartDate());
 			booking.setBookingEndDate(bo.getBookingEndDate());
-			bo.setCarRegistration(bo.getCarRegistration());
+			booking.setCarRegistration(bo.getCarRegistration());
 			
 			bookings.add(booking);
 		}
+		
+		System.out.println("//////////// BOOKING OBJECSTS IN RESOURCE");
+		System.out.println(bookingObjects);
 		
 		System.out.println("Succesfully extracted info from remote object.");
 		
@@ -82,11 +87,14 @@ public class BookingResource extends BookingObjectMarshaller
 				objectsAsXML = objectAsXML.concat(objectAsXML);
 
 				// Trim off the header from the XML as its upsetting the formatting
+				/*
 				if(i>0)
 				{
 					trimmedObjectsAsXML = objectAsXML.substring(objectAsXML.indexOf('\n')+1);
 					objectsAsXML = objectAsXML.concat(trimmedObjectsAsXML);
 				}
+				*/
+				
 			}
 			
 			System.out.println("Succesfully marshalled to XML.");

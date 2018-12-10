@@ -14,7 +14,7 @@ import java.util.List;
 public class BookingRMIServerImpl extends UnicastRemoteObject implements BookingRMIServerInterface
 {
 	// Variables
-	String url = "jdbc:mysql://localhost:3306/testSystem7";
+	String url = "jdbc:mysql://localhost:3306/testSystem8";
 	String username = "root";
 	String password = "osgard100";
 	Statement statement = null;
@@ -76,6 +76,8 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 				// Add the booking to our list of bookings retrieved from the database
 				bookingsList.add(bookingObject);
 			}
+			
+			System.out.println(bookingsList);
 		} 
         catch (SQLException e)
 		{

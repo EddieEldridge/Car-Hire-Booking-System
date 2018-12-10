@@ -10,6 +10,7 @@ package ie.gmit.sw.BookingModel;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -44,7 +45,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Booking", propOrder = {
+@XmlType(name = "Booking",  namespace = "http://sw.gmit.ie/BookingModel/", propOrder = {
+	"vehicle",
+	"customer",
     "bookingID",
     "customerID",
     "carID",
@@ -52,18 +55,82 @@ import javax.xml.bind.annotation.XmlType;
     "bookingEndDate",
     "carRegistration"
 })
-@XmlRootElement
+@XmlRootElement(name="Booking")
 public class Booking {
 
+	
+   
+    
+    // Instance variables
+    @XmlElement(namespace="htttp://sw.gmit.ie/BookingModel", required=true)
+    protected Vehicle vehicle;
+    @XmlElement(namespace="htttp://sw.gmit.ie/BookingModel", required=true)
+    protected Customer customer;
+    
+ 
+    // Booking variables
+    @XmlAttribute(name = "bookingID", required = true)
     protected int bookingID;
+    @XmlAttribute(name = "customerID", required = true)
     protected int customerID;
+    @XmlAttribute(name = "carID", required = true)
     protected int carID;
-    @XmlElement(required = true)
+    @XmlAttribute(name = "bookingStartDate", required = true)
     protected String bookingStartDate;
-    @XmlElement(required = true)
+    @XmlAttribute(name = "bookingEndDate", required = true)
     protected String bookingEndDate;
+    @XmlAttribute(name = "carRegistration", required = true)
     protected int carRegistration;
+    
 
+    /**
+     * Gets the value of the vehicle property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Vehicle }
+     *     
+     */
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    /**
+     * Sets the value of the vehicle property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Vehicle }
+     *     
+     */
+    public void setVehicle(Vehicle value) {
+        this.vehicle = value;
+    }
+
+    /**
+     * Gets the value of the customer property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Customer }
+     *     
+     */
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    /**
+     * Sets the value of the customer property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Customer }
+     *     
+     */
+    public void setCustomer(Customer value) {
+        this.customer = value;
+    }
+    
     /**
      * Gets the value of the bookingID property.
      * 

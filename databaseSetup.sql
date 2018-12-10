@@ -1,6 +1,6 @@
-CREATE DATABASE testSystem7;
+CREATE DATABASE testSystem8;
 
-USE testSystem7;
+USE testSystem8;
 
 CREATE TABLE Customer
 (
