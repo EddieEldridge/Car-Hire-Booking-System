@@ -11,11 +11,8 @@
 # Contents
 * [Description](#description)
 * [How to run](#how-to-run-the-program)
-* [Design](https://github.com/Store-Compare-Project/StoreCompare/wiki/Design-Document)
-* [Documentation](#documentation)
-* [Technologies](#technologies-and-software)
-* [Resources](#resources)
-* [Wiki](https://github.com/EddieEldridge/GoLangAutomaton/wiki)
+* [Technologies](#technologies)
+* [Issues](#issues)
 
 # Description
 This project creates a web client page which provieds users the ability to Create/Read/Update and Delete bookings in a bookings database. The web client interacts with a RESTful JAX-RS Web service which is deployed on a Apache Tomcat Server. The RESTful Web Service also acts as an RMI client to the RMI Database Server which will handle persistience and CRUD functionality of the database.
@@ -50,8 +47,12 @@ In my case it was
 ```
 This will create and populate the database.
 
+Any problems with the database can be resolved here
+
+![capture](https://user-images.githubusercontent.com/22448079/49764554-ba5abb80-fcc7-11e8-9fd4-045d174a5b50.PNG)
+
 #### Step 2
-Import the project into Eclipse.
+Import the project into Eclipse (any version will do but make sure it's an <b>Enterprise Edition</b>).
 
 Once imported you need to ensure that you have a Tomcat Server added to the Java Build Path as this will be required to simulate the RMI functionality of the program as well as running the RESTful web service and client.
 
