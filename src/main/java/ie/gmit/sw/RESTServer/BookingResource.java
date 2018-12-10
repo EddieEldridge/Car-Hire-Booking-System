@@ -37,14 +37,13 @@ public class BookingResource extends BookingObjectMarshaller
 	@GET
 	@Path("showAllBookings")
 	@Produces(MediaType.APPLICATION_XML)
-	public String getBookings() 
+	public List<Booking> getBookings() 
 	{
 		// Create a list of BookingObjects to store them in when retrieved from the database
 		List<BookingObject> bookingObjects = new ArrayList<BookingObject>();
 		List<Booking> bookings = new ArrayList<Booking>();
 		
 		// Create instances of all our models
-		Booking booking = new Booking();
 		Customer customer = new Customer();
 		Vehicle vehicle = new Vehicle();
 		
@@ -61,6 +60,8 @@ public class BookingResource extends BookingObjectMarshaller
 		// These can be located in the BookingModel package
 		for(BookingObject bo : bookingObjects)
 		{
+			Booking booking = new Booking();
+
 			booking.setBookingID(bo.getBookingID());
 			booking.setCustomerID(bo.getCustomerID());
 			booking.setCarID(bo.getCarID());
@@ -71,17 +72,18 @@ public class BookingResource extends BookingObjectMarshaller
 			bookings.add(booking);
 		}
 		
-		System.out.println("//////////// BOOKING OBJECSTS IN RESOURCE");
-		System.out.println(bookingObjects);
-		
 		System.out.println("Succesfully extracted info from remote object.");
 		
+		/*
 		try
 		{
 			// Create variable to assign to XML
 			for(i=0; i<bookings.size(); i++)
 			{
-				objectAsXML = marshalBooking(bookings.get(i));
+				Booking bookingToMarshal = bookings.get(i);
+				
+				objectAsXML = marshalBooking(bookingToMarshal);
+				
 				objectsAsXML = objectAsXML.concat(objectAsXML);
 
 				// Trim off the header from the XML as its upsetting the formatting
@@ -93,7 +95,7 @@ public class BookingResource extends BookingObjectMarshaller
 				
 			}
 			
-			
+		
 			System.out.println("Succesfully marshalled to XML.");
 
 		} 
@@ -101,11 +103,11 @@ public class BookingResource extends BookingObjectMarshaller
 		{
 			System.out.println("Error trying to call marshalBooking..." + e);
 		}
-		
-		System.out.println(objectsAsXML);
+			*/
+		System.out.println(bookings);
 
 		// Return the objects as XML
-		return objectsAsXML;
+		return bookings;
 	}
 	
 	// Creates a booking
