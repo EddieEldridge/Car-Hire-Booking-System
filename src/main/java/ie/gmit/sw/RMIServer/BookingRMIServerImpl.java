@@ -56,7 +56,6 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
         try
 		{
 			Statement statement = connection.createStatement();
-			System.out.println(statement);
         	System.out.println("Executing statement!");
 			ResultSet rs = statement.executeQuery(sql);
 			
@@ -122,7 +121,6 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 		BookingObject bookingObjectToAdd = new BookingObject();
 				
 		// Create the sql statement we went to execute on our
-		// INSERT INTO bookings(firstName, secondName, ID) VALUES ("Eddie", "Eldridge", 5);
 		System.out.println(url);
 		String sql = "insert into booking(bookingID, customerID, carID, bookingStartDate, bookingEndDate, carRegistration) VALUES +("
 		+ bookingObjectToAdd.getBookingID() + "), ("
@@ -138,14 +136,9 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
         try
 		{
 			Statement statement = connection.createStatement();
-			System.out.println(statement);
         	System.out.println("Executing statement!");
-			ResultSet rs = statement.executeQuery(sql);
+			statement.executeUpdate(sql);
 			
-			while(rs.next())
-			{
-				System.out.println(rs);
-			}
 		} 
         catch (SQLException e)
 		{

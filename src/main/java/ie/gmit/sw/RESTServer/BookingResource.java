@@ -4,6 +4,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
 import ie.gmit.sw.BookingModel.Booking;
@@ -147,15 +148,22 @@ public class BookingResource extends BookingObjectMarshaller
 	// Creates a booking
 	@POST
 	@Path("createBooking")
-	@Consumes(MediaType.APPLICATION_XML)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Response createBooking(String response)
 	{
+		String customerID = request.getParamater("customerID");
+		
+		
+		System.out.println("Inside POST METHOD");
 		System.out.println(response);
 		
 		// Create instance of booking to assign values from jsp
 		Booking bookingObjectToMarshall = unmarshalBooking(response);
 		
 		BookingObject bookingObjectMarshalled = new BookingObject();
+		
+		
+		
 		
 		bookingObjectMarshalled.setBookingID(bookingObjectToMarshall.getBookingID());
 		bookingObjectMarshalled.setCustomerID(bookingObjectToMarshall.getBookingID());

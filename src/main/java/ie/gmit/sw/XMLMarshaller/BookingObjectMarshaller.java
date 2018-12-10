@@ -50,6 +50,7 @@ public class BookingObjectMarshaller
 	// Function to unmarshal the XML to a Java object(Booking)
 	public Booking unmarshalBooking(String xml)
 	{
+		System.out.println("XML RECEIVED BY POST MeTHOD: " +xml);
 		StringReader stringReader = new StringReader(xml);
 		Unmarshaller xmlUnmarshaller;
 		
