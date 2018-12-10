@@ -131,17 +131,19 @@ public class BookingResource extends BookingObjectMarshaller
 	// Shows bookings with a specified ID
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@Path("booking/{orderID}")
-	public BookingObject getBooking(@PathParam("orderID") int orderID) 
+	@Path("getBooking/{bookingID}")
+	public BookingObject getBooking(@PathParam("bookingID") int bookingID) throws SQLException 
 	{
 		try
 		{
-			return bookingServiceImpl.getBooking(orderID);
+			return bookingServiceImpl.getBooking(bookingID);
 		} 
 		catch (RemoteException e)
 		{
 			System.out.println("Resource Error: " + e);
 		}
+		
+		System.out.println("Couldn't find booking.");
 		return null;
 	}
 	
