@@ -129,7 +129,7 @@ public class BookingResource extends BookingObjectMarshaller
 		return null;
 	}
 	
-	// Shows bookings with a specified ID
+	// Deletes booking with a specified ID
 	@DELETE
 	@Path("deleteBooking/{bookingID}")
 	public void deleteBooking(@PathParam("bookingID") int bookingID) throws SQLException 
@@ -146,7 +146,7 @@ public class BookingResource extends BookingObjectMarshaller
 	}
 	
 
-	// Creates a booking
+	// Creates a booking with a specified ID
 	@POST
 	@Path("createBooking")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
