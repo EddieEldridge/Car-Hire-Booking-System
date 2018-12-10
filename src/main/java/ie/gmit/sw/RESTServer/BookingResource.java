@@ -56,7 +56,7 @@ public class BookingResource extends BookingObjectMarshaller
 		} 
 		catch (SQLException e)
 		{
-			e.printStackTrace();
+			System.out.println("User input error");
 		}
 		return Response.ok().build();
 	}
@@ -168,7 +168,24 @@ public class BookingResource extends BookingObjectMarshaller
 		
 	}
 	
-
+	// Gets the id for which object to delete
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Path("getBookingIDForDeletion")
+	public Response getBookingIDForDeletion(@FormParam("bookingID")String bookingID)
+	{		
+		int parsedBookingID = Integer.parseInt(bookingID);
+				
+		try
+		{
+			deleteBooking(parsedBookingID);
+		} 
+		catch (SQLException e)
+		{
+			System.out.println("User input error");
+		}
+		return Response.ok().build();
+	}
 	// Creates a booking
 	@POST
 	@Path("createBooking")
