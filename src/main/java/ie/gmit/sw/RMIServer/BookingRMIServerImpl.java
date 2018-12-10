@@ -161,10 +161,9 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
         try
 		{
 			Statement statement = connection.createStatement();
-			System.out.println(statement);
-        	System.out.println("Executing statement!");
 			statement.executeUpdate(sql);
-			
+        	System.out.println("Executing statement: " + sql);
+
 			// Print result
 			System.out.println("Booking deleted!");
 

@@ -33,14 +33,14 @@ public class BookingResource extends BookingObjectMarshaller
 	private BookingRMIServerImpl bookingServiceImpl;
 	BookingObjectMarshaller bom = new BookingObjectMarshaller();
 
+	// Constructor
 	public BookingResource() throws SQLException, RemoteException
 	{
 		bookingServiceImpl = new BookingRMIServerImpl();
 	}
 	
 	
-	// Gets the booking ID from the getBooking.jsp page
-	
+	// Gets the booking ID from the user for the getBooking method
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("getBookingID")
@@ -168,7 +168,7 @@ public class BookingResource extends BookingObjectMarshaller
 		
 	}
 	
-	// Gets the id for which object to delete
+	// Gets the booking ID from the user for the delteBooking method
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("getBookingIDForDeletion")
