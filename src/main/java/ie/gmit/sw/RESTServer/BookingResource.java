@@ -160,34 +160,33 @@ public class BookingResource extends BookingObjectMarshaller
 			)
 	{		
 		System.out.println("Inside POST METHOD");
-		System.out.println(bookingID);
 
-		// Create instance of booking to assign values from jsp
-		//Booking bookingObjectToMarshall = unmarshalBooking(response);
+		// Create instance of booking to assign values from jsp		
+		BookingObject bookingObjectToStoreInDB = new BookingObject();
 		
-		/*
-		BookingObject bookingObjectMarshalled = new BookingObject();
+		// Turn the string values into ints
+		int newBookingID = Integer.parseInt(bookingID);
+		int newCustomerID = Integer.parseInt(customerID);
+		int newCarID = Integer.parseInt(carID);
+		int newCarRegistration = Integer.parseInt(carRegistration);
 		
-		
-		
-		
-		bookingObjectMarshalled.setBookingID(bookingObjectToMarshall.getBookingID());
-		bookingObjectMarshalled.setCustomerID(bookingObjectToMarshall.getBookingID());
-		bookingObjectMarshalled.setCarID(bookingObjectToMarshall.getCarID());
-		bookingObjectMarshalled.setBookingStartDate(bookingObjectToMarshall.getBookingStartDate());
-		bookingObjectMarshalled.setBookingEndDate(bookingObjectToMarshall.getBookingStartDate());
-		bookingObjectMarshalled.setCarRegistration(bookingObjectToMarshall.getCarRegistration());
+		bookingObjectToStoreInDB.setBookingID(newBookingID);
+		bookingObjectToStoreInDB.setCustomerID(newCustomerID);
+		bookingObjectToStoreInDB.setCarID(newCarID);
+		bookingObjectToStoreInDB.setBookingStartDate(bookingStartDate);
+		bookingObjectToStoreInDB.setBookingEndDate(bookingEndDate);
+		bookingObjectToStoreInDB.setCarRegistration(newCarRegistration);
 		
 		try
 		{
 			// Send the mapped object to the RMI Server to be read in to the database
-			bookingServiceImpl.createBooking(bookingObjectMarshalled);
+			bookingServiceImpl.createBooking(bookingObjectToStoreInDB);
 		} 
 		catch (RemoteException e)
 		{
 			System.out.println("Resource Error: " + e);
 		}
-		*/
+		
 		return Response.ok().build();
 	}
 }
