@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 
@@ -147,7 +148,22 @@ public class BookingResource extends BookingObjectMarshaller
 		return null;
 	}
 	
-	
+	// Shows bookings with a specified ID
+	@DELETE
+	@Produces(MediaType.APPLICATION_XML)
+	@Path("deleteBooking/{bookingID}")
+	public void deleteBooking(@PathParam("bookingID") int bookingID) throws SQLException 
+	{
+		try
+		{
+			bookingServiceImpl.deleteBooking(bookingID);
+		} 
+		catch (RemoteException e)
+		{
+			System.out.println("Resource Error: " + e);
+		}
+		
+	}	
 }
 
 
