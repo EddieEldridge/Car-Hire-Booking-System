@@ -90,17 +90,17 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 
 	// Shows bookings with a specified ID
 	@Override
-	public BookingObject getBooking(int orderID) throws RemoteException
+	public BookingObject getBooking(int bookingID) throws RemoteException
 	{
-
-		/*
-		 * for (Booking booking : bookings) { if (booking.getOrderID() == orderID) {
-		 * System.out.println("Booking found!"); return booking; } else { return null; }
-		 * }
-		 */
 		System.out.println("Getting booking...!");
-
-
+		
+		BookingObject bookingObjectToReturn = new BookingObject();
+		
+		// Create the sql statement we went to execute on our
+		System.out.println(url);
+		String sql = "select * from booking where bookingID=666;";
+				
+		
 		return null;
 
 	}
