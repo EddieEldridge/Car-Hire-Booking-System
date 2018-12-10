@@ -5,7 +5,7 @@
    
    <body>
       <center>
-      <h1>Using POST Method to Read Form Data</h1>
+      <h1></h1>
       
      <form action = "http://localhost:8080/DistributedSystemsG00337490/webapi/BookingSystem/createBooking" method = "post" enctype="application/x-www-form-urlencoded">
 

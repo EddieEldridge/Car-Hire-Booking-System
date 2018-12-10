@@ -37,7 +37,30 @@ public class BookingResource extends BookingObjectMarshaller
 	{
 		bookingServiceImpl = new BookingRMIServerImpl();
 	}
-			
+	
+	
+	// Gets the booking ID from the getBooking.jsp page
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Path("getBookingID")
+	public Response getBookingID(@FormParam("bookingID")String bookingID)
+	{
+		System.out.println(bookingID);
+		
+		int parsedBookingID = Integer.parseInt(bookingID);
+				
+		try
+		{
+			getBooking(parsedBookingID);
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return Response.ok().build();
+	}
+	
 	// Shows all current bookings
 	@GET
 	@Path("showAllBookings")
@@ -113,9 +136,9 @@ public class BookingResource extends BookingObjectMarshaller
 	// Shows bookings with a specified ID
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@Path("getBooking/{bookingID}")
-	public BookingObject getBooking(@PathParam("bookingID") int bookingID) throws SQLException 
-	{
+	@Path("getBooking")
+	public BookingObject getBooking(int bookingID) throws SQLException 
+	{				
 		try
 		{
 			return bookingServiceImpl.getBooking(bookingID);
@@ -129,7 +152,7 @@ public class BookingResource extends BookingObjectMarshaller
 		return null;
 	}
 	
-	// Deletes booking with a specified ID
+	// Deletes bookings with a specified ID
 	@DELETE
 	@Path("deleteBooking/{bookingID}")
 	public void deleteBooking(@PathParam("bookingID") int bookingID) throws SQLException 
@@ -146,7 +169,7 @@ public class BookingResource extends BookingObjectMarshaller
 	}
 	
 
-	// Creates a booking with a specified ID
+	// Creates a booking
 	@POST
 	@Path("createBooking")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
