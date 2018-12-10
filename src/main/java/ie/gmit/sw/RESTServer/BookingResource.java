@@ -150,10 +150,17 @@ public class BookingResource extends BookingObjectMarshaller
 	@POST
 	@Path("createBooking")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public Response createBooking(@FormParam("customerID")String customerID)
+	public Response createBooking(
+			@FormParam("bookingID")String bookingID,
+			@FormParam("customerID")String customerID,
+			@FormParam("carID")String carID,
+			@FormParam("bookingStartDate")String bookingStartDate,
+			@FormParam("bookingEndDate")String bookingEndDate,
+			@FormParam("carRegistration")String carRegistration
+			)
 	{		
 		System.out.println("Inside POST METHOD");
-		System.out.println(customerID);
+		System.out.println(bookingID);
 
 		// Create instance of booking to assign values from jsp
 		//Booking bookingObjectToMarshall = unmarshalBooking(response);
