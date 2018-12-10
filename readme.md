@@ -81,8 +81,20 @@ If all goes well, an index.jsp page should appear.
 
 From here you can interact remotely with the database and perform some CRD functionality on the database.
 
+#### Step 4
+Navigate to 
+```
+http://localhost:8080/DistributedSystemsG00337490/
+```
+in your browser if you would prefer.
+
+Enjoy!
 # Issues
-I am aware that when trying to view all the bookings from the database, they are only displayed as XML.
+
+* XML does not play well with Firefox therefore Chrome or any alternative should be used if testing in the browser
+* I am aware that when trying to view all the bookings from the database, they are only displayed as XML. I was trying to figure out a way to map the XML to HTML/JSP for sometime but could not find a way
+* When clicking any of the buttons, a blank page is displayed. However when you return to see all the bookings or check the database, you will see the database has changed.
+* Marshalling/Unmarshalling was not used to send and recieve data from RESTful service but the functionality was included if needed in the future
 
 # Technologies
 * [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services)
@@ -92,6 +104,7 @@ I am aware that when trying to view all the bookings from the database, they are
 * [Tomcat Server](https://tomcat.apache.org/)
 * [Eclipse IDE](https://www.eclipse.org/ide/)
 * [MySQL Server 5.7](https://dev.mysql.com/downloads/mysql/5.7.html)
+* [Maven](https://maven.apache.org/)
 
 # Developers
 * [Eddie Eldridge](https://github.com/EddieEldridge)	
