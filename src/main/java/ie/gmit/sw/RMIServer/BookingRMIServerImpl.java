@@ -48,19 +48,17 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 		
 		System.out.println("Getting all bookings...");
 		        
-		// Create the sql statement we went to execute on our
-		System.out.println(url);
+		// Create the sql statement we went to execute on our db
 		String sql = "select * from booking;";
 		
 		// Execute the statement
         try
 		{
 			Statement statement = connection.createStatement();
-        	System.out.println("Executing statement!");
 			ResultSet rs = statement.executeQuery(sql);
-			
-			System.out.println("RESULT SET: " + rs);
-			
+        	System.out.println("Executing statement: " + sql);
+
+        	// While there is text read from the database
 			while(rs.next())
 			{
 				// Create a new empty instance of bookingObject for each booking
@@ -118,7 +116,7 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 	public void createBooking(BookingObject booking) throws RemoteException
 	{
 		
-		// Create the sql statement we went to execute on our
+		// Create the sql statement we went to execute on our db
 		System.out.println(url);
 		String sql = "insert into booking(bookingID, customerID, carID, bookingStartDate, bookingEndDate, carRegistration) VALUES(" 
 		+ booking.getBookingID() + "," 
@@ -130,13 +128,13 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 		+ ";";
 				
 		System.out.println("Creating booking...!");
+		
 		// Execute the statement
         try
 		{
 			Statement statement = connection.createStatement();
-        	System.out.println("Executing statement: " + sql);
 			statement.executeUpdate(sql);
-			
+        	System.out.println("Executing statement: " + sql);
 		} 
         catch (SQLException e)
 		{
@@ -148,15 +146,11 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 	@Override
 	public void deleteBooking(int bookingID) throws RemoteException
 	{
-		System.out.println("Getting booking...!");
+		System.out.println("Deleting booking...!");
 		
-		// Get all the bookings using the above getbookings Method
-		List<BookingObject> bookingsList =  getBookings();
-			
-		// Create the sql statement we went to execute on our
+		// Create the sql statement we went to execute on our db
 		String sql = "DELETE FROM Booking WHERE bookingID=" + bookingID +";";
 		
-
 		// Execute the statement
         try
 		{

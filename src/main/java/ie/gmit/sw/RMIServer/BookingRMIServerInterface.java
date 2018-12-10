@@ -8,6 +8,7 @@ import java.util.List;
 public interface BookingRMIServerInterface extends Remote
 {
 	// Declare booking methods
+	// These will be remotely invoked to access CRUD Functionality on the databaes
 	public List<BookingObject> getBookings() throws RemoteException;
 	
 	public BookingObject getBooking(int orderID) throws RemoteException, SQLException;

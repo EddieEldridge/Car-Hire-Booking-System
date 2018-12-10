@@ -12,7 +12,11 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
-
+/*
+ THIS CLASS WAS ORIGINALLY INTENDED TO BE USED WHEN CREATING A BOOKING,
+ HOWEVER I FOUND IT EASIER TO TAKE THE VALUES FROM USER INPUT AND MAP THEM DIRECTLY TO AN OBJECT
+ IF I HAD USED THE ORIGINAL WAY THIS WOULD HAVE BEEN MY IMPLEMENTATION
+ */
 public class BookingObjectMarshaller
 {
 	public BookingObjectMarshaller()

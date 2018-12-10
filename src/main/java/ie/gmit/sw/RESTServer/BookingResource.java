@@ -45,11 +45,11 @@ public class BookingResource extends BookingObjectMarshaller
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Path("getBookingID")
 	public Response getBookingID(@FormParam("bookingID")String bookingID)
-	{
-		System.out.println(bookingID);
-		
+	{		
+		// Parse the bookingID to an integer
 		int parsedBookingID = Integer.parseInt(bookingID);
 				
+		// Call the getBooking method with the bookingID we just got from the jsp page
 		try
 		{
 			getBooking(parsedBookingID);
@@ -138,7 +138,8 @@ public class BookingResource extends BookingObjectMarshaller
 	@Produces(MediaType.APPLICATION_XML)
 	@Path("getBooking")
 	public BookingObject getBooking(int bookingID) throws SQLException 
-	{				
+	{	
+		// Get the booking from the database by remotely invoking our remote method we setup
 		try
 		{
 			return bookingServiceImpl.getBooking(bookingID);
@@ -186,10 +187,12 @@ public class BookingResource extends BookingObjectMarshaller
 		}
 		return Response.ok().build();
 	}
+	
 	// Creates a booking
 	@POST
 	@Path("createBooking")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	// Take in the paramaters from the URL (the fields the user filled in when they went to create a booking)
 	public Response createBooking(
 			@FormParam("bookingID")String bookingID,
 			@FormParam("customerID")String customerID,
@@ -210,6 +213,7 @@ public class BookingResource extends BookingObjectMarshaller
 		int newCarID = Integer.parseInt(carID);
 		int newCarRegistration = Integer.parseInt(carRegistration);
 		
+		// Map the variables taken in from the user to a booking object
 		bookingObjectToStoreInDB.setBookingID(newBookingID);
 		bookingObjectToStoreInDB.setCustomerID(newCustomerID);
 		bookingObjectToStoreInDB.setCarID(newCarID);
