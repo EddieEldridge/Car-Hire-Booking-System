@@ -156,10 +156,26 @@ public class BookingRMIServerImpl extends UnicastRemoteObject implements Booking
 			List<BookingObject> bookingsList =  getBookings();
 				
 			// Create the sql statement we went to execute on our
-			String sql = " DELETE FROM Booking WHERE bookingID=" + bookingID +";";
+			String sql = "DELETE FROM Booking WHERE bookingID=" + bookingID +";";
 			
-			// Print result
-			System.out.println("Booking deleted!");
+
+			// Execute the statement
+	        try
+			{
+				Statement statement = connection.createStatement();
+				System.out.println(statement);
+	        	System.out.println("Executing statement!");
+				statement.executeUpdate(sql);
+				
+				// Print result
+				System.out.println("Booking deleted!");
+
+			}
+	        catch (SQLException e)
+			{
+				System.out.println("SQL Error: " +e);
+			}
+	        
 		}
 
 }

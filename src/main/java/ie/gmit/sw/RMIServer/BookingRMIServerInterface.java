@@ -14,8 +14,6 @@ public interface BookingRMIServerInterface extends Remote
 	
 	public void createBooking(BookingObject booking) throws RemoteException;
 
-	void deleteBooking(BookingObject booking) throws RemoteException;
-
-	void deleteBooking(int bookingID) throws RemoteException;
+	public void deleteBooking(int bookingID) throws RemoteException;
 
 }

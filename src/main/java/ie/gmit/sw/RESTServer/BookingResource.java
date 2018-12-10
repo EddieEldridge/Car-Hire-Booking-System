@@ -150,7 +150,6 @@ public class BookingResource extends BookingObjectMarshaller
 	
 	// Shows bookings with a specified ID
 	@DELETE
-	@Produces(MediaType.APPLICATION_XML)
 	@Path("deleteBooking/{bookingID}")
 	public void deleteBooking(@PathParam("bookingID") int bookingID) throws SQLException 
 	{
