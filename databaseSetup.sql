@@ -1,6 +1,6 @@
-CREATE DATABASE testSystem9;
+CREATE DATABASE G00337490BookingDB;
 
-USE testSystem9;
+USE G00337490BookingDB;
 
 CREATE TABLE Customer
 (
