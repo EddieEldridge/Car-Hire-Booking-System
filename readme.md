@@ -72,6 +72,10 @@ Right Click BookingRMIServer > Run as > Run on Server
 ```
 
 ```
+Right Click BookingRMIClient > Run as > Java Application
+```
+
+```
 Right Click DistributedSystemsG00337490 > Run as > Run on Server
 ```
 
